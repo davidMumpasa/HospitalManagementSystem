@@ -9,4 +9,9 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="welcome_to_our_hospital_system">Welcome To Our Hospital System</string>
+    <string name="user_email">User Email</string>
+    <string name="user_password">User Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_accout_click_here_to_register">don\'t have accout? Click here to register</string>
 </resources>
