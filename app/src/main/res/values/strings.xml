@@ -1,14 +1,27 @@
 <resources>
-    <string name="app_name">HospitalManagementSystem</string>
-    <string name="todo">TODO</string>
-    <string name="welcome_to_our_service">Welcome To Our Service</string>
-    <string name="enter_your_email">Enter your email</string>
-    <string name="enter_your_password">Enter your password</string>
-    <string name="login">Login</string>
-    <string name="admin">Admin login</string>
-    <string name="don_t_have_account_register">Don\'t have account ? Register</string>
-    <string name="patient_registration">Patient Registration</string>
-    <string name="select_one_option">Select One option</string>
-    <string name="doctor_registration">Doctor Registration</string>
-    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="app_name">HospitalManagement</string>
+    <string-array name="timeframe">
+        <item>Select the time you are available</item>
+        <item>7 - 9</item>
+        <item>9 - 10</item>
+        <item>10 - 12</item>
+        <item>12 - 14</item>
+        <item>14 - 16</item>
+        <item>18 - 20</item>
+        <item>20 - 22</item>
+        <item>22 - 24</item>
+    </string-array>
+    <string-array name="departments">
+        <item>Select your department</item>
+        <item>Dentistry</item>
+        <item>Surgery</item>
+        <item>Gynecologist</item>
+        <item>Dermatologist</item>
+    </string-array>
+    <string-array name="specialization">
+        <item>Select your specialization</item>
+        <item>General</item>
+        <item>Trainee</item>
+        <item>Analyst</item>
+    </string-array>
 </resources>

@@ -19,7 +19,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:contentDescription="@string/todo"
+            android:contentDescription="todo"
             android:src="@drawable/doctor"
             tools:ignore="ImageContrastCheck" />
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="@string/welcome_to_our_service"
+            android:text="Welcome to our service"
             android:textColor="#546E7A"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_email"
-                    android:hint="@string/enter_your_email"
+                    android:hint="enter your email"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
                     android:drawablePadding="10dp"
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_lock"
-                    android:hint="@string/enter_your_password"
+                    android:hint="enter your password"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
                     android:drawablePadding="10dp"
@@ -94,32 +94,32 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_background"
-                android:text="@string/login"
+                android:text="login"
                 android:textAllCaps="false"
                 android:textColor="#fff" />
 
             <TextView
-                android:id="@+id/textViewBack"
+                android:id="@+id/textViewRegister"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/don_t_have_account_register"
-                android:textAllCaps="false"
+                android:text="Don't have account? Register"
                 android:textColor="#000"
-                android:textSize="20sp" />
+                android:textSize="16sp"
+                tools:textAllCaps="false" />
 
             <TextView
                 android:id="@+id/textViewAdmin"
                 android:layout_width="match_parent"
-                android:layout_height="29dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/admin"
+                android:text="Admin"
                 android:textAllCaps="false"
                 android:textColor="#000"
                 android:textSize="16sp" />
