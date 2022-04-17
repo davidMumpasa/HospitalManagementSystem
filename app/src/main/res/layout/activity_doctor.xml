@@ -8,8 +8,8 @@
 
     android:background="@color/white"
     android:fitsSystemWindows="true"
-    tools:context=".PatientActivity">
-<!--tools:openDrawer="start"-->
+    tools:context=".DoctorActivity">
+    <!--tools:openDrawer="start"-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textViewName1"
-                android:text="My name"
+                android:text="doctor name"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textViewEmail"
-                android:text="Patient email"
+                android:text="doctor email"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -83,21 +83,12 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button_setAppointment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-           android:layout_margin="20dp"
-            android:background="@drawable/button_background"
-            android:text="@string/set_appointment" />
-
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
-        app:menu="@menu/patient_menu"
+        app:menu="@menu/doctor_menu"
         app:itemIconTint="@drawable/navigation_selector"
         app:itemTextColor="@drawable/navigation_selected"
         android:layout_width="wrap_content"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/appointment"
+        android:title="Appointment"
+        android:icon="@drawable/ic_myfeed"/>
+    <item
+        android:id="@+id/notification"
+        android:title="Notification"
+        android:icon="@drawable/ic_notifications"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout"/>
+</menu>
