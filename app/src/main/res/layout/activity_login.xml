@@ -19,7 +19,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:contentDescription="todo"
+            android:contentDescription="@string/todo"
             android:src="@drawable/doctor"
             tools:ignore="ImageContrastCheck" />
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="Welcome to our service"
+            android:text="@string/welcome_to_our_service"
             android:textColor="#546E7A"
             android:textSize="20sp"
             android:textStyle="bold"
