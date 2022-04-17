@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:openDrawer="start"
+
     android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context=".PatientActivity">
+<!--tools:openDrawer="start"-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,22 +25,72 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:paddingTop="20dp">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="time"
+                android:layout_height="wrap_content"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_image"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/profile_image"
+                android:layout_gravity="center"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"/>
+                android:id="@+id/textViewName1"
+                android:text="My name"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="20dp"
+                android:layout_gravity="center"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewEmail"
+                android:text="Patient email"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="20dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewNumber"
+                android:text="0717783902"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingTop="20dp"
+                android:layout_gravity="center"/>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_setAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+           android:layout_margin="20dp"
+            android:background="@drawable/button_background"
+            android:text="@string/set_appointment" />
 
     </LinearLayout>
 

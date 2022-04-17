@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HospitalManagement">
         <activity
+            android:name=".SetAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".PatientActivity"
             android:exported="false" />
         <activity

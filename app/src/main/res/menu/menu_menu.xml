@@ -2,10 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/ic_myfeed"/>
-    <item
         android:id="@+id/appointment"
         android:title="appointment"
         android:icon="@drawable/ic_myfeed"/>
