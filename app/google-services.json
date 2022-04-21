@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "410155196815",
+    "firebase_url": "https://hospital-management-syst-8ddaa-default-rtdb.firebaseio.com",
+    "project_id": "hospital-management-syst-8ddaa",
+    "storage_bucket": "hospital-management-syst-8ddaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410155196815:android:10a95004b4c9232d99abfa",
+        "android_client_info": {
+          "package_name": "za.ac.tuthospitalmanagementsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410155196815-bf3us6fh9pnv48k1a6ij72v454g3hbjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmIGvy-2-QSjNNj26hpyVUxyNEMx6JtC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410155196815-bf3us6fh9pnv48k1a6ij72v454g3hbjf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

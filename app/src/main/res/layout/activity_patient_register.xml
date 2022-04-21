@@ -51,11 +51,33 @@
             app:hintTextAppearance="@color/design_default_color_primary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextName"
+                android:id="@+id/textInputEditTextFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_profile"
-                android:hint="Enter your full name"
+                android:hint="Enter your fisrt name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:drawablePadding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#000"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+            app:hintTextAppearance="@color/design_default_color_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_profile"
+                android:hint="Enter your last name"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:drawablePadding="10dp"
@@ -131,6 +153,39 @@
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Spinner
+            android:id="@+id/spinnerGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:popupBackground="@color/white"
+            android:entries="@array/gender"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#000"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+            app:hintTextAppearance="@color/design_default_color_primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_home"
+                android:hint="enter your address"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:drawablePadding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -153,6 +208,7 @@
                 android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/buttonRegister"

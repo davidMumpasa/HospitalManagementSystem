@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HospitalManagement">
         <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminAppointmentActivity"
             android:exported="false" />
         <activity
@@ -44,9 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".PatientRegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

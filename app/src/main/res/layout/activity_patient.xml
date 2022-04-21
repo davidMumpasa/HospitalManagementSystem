@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-
+    tools:openDrawer="start"
     android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context=".PatientActivity">
@@ -52,8 +52,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewName1"
-                android:text="My name"
+                android:id="@+id/textViewUName"
+                android:text="Patient name"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -63,17 +63,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewEmail"
+                android:id="@+id/textViewUserEmail"
                 android:text="Patient email"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:paddingTop="20dp"
                 android:layout_gravity="center"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewNumber"
+                android:id="@+id/textViewUserNumber"
                 android:text="0717783902"
                 android:textSize="18sp"
                 android:textStyle="bold"
