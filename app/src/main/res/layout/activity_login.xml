@@ -111,18 +111,6 @@
                 android:textSize="16sp"
                 tools:textAllCaps="false" />
 
-            <TextView
-                android:id="@+id/textViewAdmin"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Admin"
-                android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

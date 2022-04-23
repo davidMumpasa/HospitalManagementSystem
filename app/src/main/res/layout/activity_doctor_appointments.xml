@@ -18,7 +18,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <TextView
-        android:id="@+id/textViewAppoments"
+        android:id="@+id/textViewAppointments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="No appointment"

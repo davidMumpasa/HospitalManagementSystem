@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class PatientRegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,11 +42,12 @@ class PatientRegisterActivity : AppCompatActivity() {
         val role = "patient"
 
 
-        val data : DatabaseReference = FirebaseDatabase.getInstance().getReference("Admin")
-        data.child(email.text.toString()).setValue(Patient(patientId.text.toString(),firstName.text.toString(),lastName.text.toString(),phoneNumber.text.toString(),address.text.toString(),gender.selectedItem.toString(),password.text.toString(),role))
+        val database  = Firebase.database
+        val myref = database.getReference("Patient").child(email.text.toString())
+
+        myref.setValue(Patient(patientId.text.toString(),firstName.text.toString(),lastName.text.toString(),phoneNumber.text.toString(),address.text.toString(),gender.selectedItem.toString(),password.text.toString(),role))
 
         goToLoginPage()
-
     }
 
     private fun goToLoginPage() {
