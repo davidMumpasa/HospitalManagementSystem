@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.ButtonBarLayout
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 
@@ -19,7 +18,7 @@ class PatientActivity : AppCompatActivity() {
         setContentView(R.layout.activity_patient)
         var drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
-        var button_setAppointment = findViewById<Button>(R.id.button_setAppointment)
+        var button_setAppointment = findViewById<Button>(R.id.buttonSetAppointment)
 
         button_setAppointment.setOnClickListener {
             goToSetAppointment()
@@ -28,7 +27,7 @@ class PatientActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        /**var nav_view = findViewById<NavigationView>(R.id.nav_view)
+        var nav_view = findViewById<NavigationView>(R.id.nav_view)
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.appointment->{
@@ -42,7 +41,7 @@ class PatientActivity : AppCompatActivity() {
                 }
             }
             true
-        }*/
+        }
     }
 
     private fun goToSetAppointment() {

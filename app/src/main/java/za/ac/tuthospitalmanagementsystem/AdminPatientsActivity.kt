@@ -1,15 +1,12 @@
 package za.ac.tuthospitalmanagementsystem
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.getValue
 import java.lang.StringBuilder
 
 class AdminPatientsActivity : AppCompatActivity() {
@@ -25,7 +22,7 @@ class AdminPatientsActivity : AppCompatActivity() {
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
 
         buttonDelete.setOnClickListener {
-            val editTextPatientId = findViewById<TextView>(R.id.editTextPatientId)
+            val editTextPatientId = findViewById<TextView>(R.id.editTextDoctorId)
 
             val patientEmail : String = editTextPatientId.text.toString()
             if(patientEmail.isNotEmpty()){
@@ -39,7 +36,7 @@ class AdminPatientsActivity : AppCompatActivity() {
     }
 
     private fun loadingPatient() {
-        val textViewAppointments = findViewById<TextView>(R.id.textViewAppointments)
+        val textViewAppointments = findViewById<TextView>(R.id.textViewDoctors)
 
         database = FirebaseDatabase.getInstance().getReference("Patient")
         database.get().addOnSuccessListener {
@@ -51,7 +48,7 @@ class AdminPatientsActivity : AppCompatActivity() {
                 var gender = i.child("gender").getValue()
                 var id = i.key
 
-                sb.append("id no $id\nName $name\nSurname $surname\nGender $gender\n_____________________________\n")
+                sb.append("Username $id\nName $name\nSurname $surname\nGender $gender\n_____________________________\n")
             }
             textViewAppointments.setText(sb)
         }.addOnFailureListener {

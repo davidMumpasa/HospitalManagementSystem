@@ -85,7 +85,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_setAppointment"
+            android:id="@+id/buttonSetAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

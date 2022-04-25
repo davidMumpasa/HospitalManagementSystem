@@ -21,7 +21,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
         <TextView
-            android:id="@+id/textViewAppointments"
+            android:id="@+id/textViewDoctors"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="No patient"
@@ -30,10 +30,10 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextPatientId"
+            android:id="@+id/editTextDoctorId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Patient email"
+            android:hint="Patient Username"
             android:inputType="text"
             android:textAlignment="center"
             android:textAllCaps="true"

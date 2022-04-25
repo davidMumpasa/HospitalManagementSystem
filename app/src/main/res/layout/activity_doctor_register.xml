@@ -187,7 +187,7 @@
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!---<Spinner
+        <Spinner
             android:id="@+id/spinnerAvailability"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
             android:entries="@array/specialization"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>-->
+            android:layout_marginTop="10dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -235,9 +235,9 @@
                 android:id="@+id/textInputEditTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_email"
-                android:hint="enter your email"
-                android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/ic_lock"
+                android:hint="enter username"
+                android:inputType="text"
                 android:minHeight="48dp"
                 android:drawablePadding="10dp"
                 android:textColor="#000"
@@ -259,29 +259,6 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_lock"
                 android:hint="create password"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextConfirmPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_lock"
-                android:hint="confirm password"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:drawablePadding="10dp"

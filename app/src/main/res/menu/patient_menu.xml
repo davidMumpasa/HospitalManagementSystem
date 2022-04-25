@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_myfeed"/>
     <item
         android:id="@+id/profile"
-        android:title="profile"
+        android:title="Edit Profile"
         android:icon="@drawable/ic_profile"/>
     <item
         android:id="@+id/logout"

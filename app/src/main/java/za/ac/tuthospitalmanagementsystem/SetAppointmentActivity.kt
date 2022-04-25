@@ -4,6 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class SetAppointmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +19,8 @@ class SetAppointmentActivity : AppCompatActivity() {
         var buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
 
         buttonSubmit.setOnClickListener {
-            submitAppointment()
+            val appointmentNumber = 11233;
+            submitAppointment(appointmentNumber)
         }
 
         buttonBack.setOnClickListener {
@@ -22,7 +28,16 @@ class SetAppointmentActivity : AppCompatActivity() {
         }
     }
 
-    private fun submitAppointment() {
+    private fun submitAppointment(appointmentNumber: Int) {
+        val editTextDisease :String = findViewById<EditText>(R.id.editTextDisease).text.toString()
+        val spinnerAvailability :String = findViewById<Spinner>(R.id.spinnerAvailability).selectedItem.toString()
+        val editTextDate : String = findViewById<EditText>(R.id.editTextDate).text.toString()
+
+        val database  = Firebase.database
+        val myref = database.getReference("Appointment").child(appointmentNumber.toString())
+
+        myref.setValue(Appointment(patient = "hh", doctor="null",editTextDisease,spinnerAvailability,editTextDate))
+
         val intent = Intent(this,AppointmentActivity::class.java)
         startActivity(intent)
     }
