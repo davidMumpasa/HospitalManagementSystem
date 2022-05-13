@@ -9,6 +9,7 @@ import android.widget.Spinner
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
+import kotlin.random.Random
 
 class SetAppointmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +20,8 @@ class SetAppointmentActivity : AppCompatActivity() {
         var buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
 
         buttonSubmit.setOnClickListener {
-            val appointmentNumber = 11233;
-            submitAppointment(appointmentNumber)
+            val randomValues = Random.nextInt(1000)
+            submitAppointment(randomValues)
         }
 
         buttonBack.setOnClickListener {

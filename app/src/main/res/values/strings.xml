@@ -5,16 +5,27 @@
     <string name="todo">todo</string>
     <string name="welcome_to_our_service">Welcome to our service</string>
     <string name="set_appointment">Set Appointment</string>
+    <string name="patient_record">Patient Record</string>
+    <string name="appointment">Appointment</string>
+    <string name="view_patient_record">View Patient Record</string>
+    <string name="logout">Logout</string>
+    <string name="no_record">No record</string>
+    <string name="enter_record_no">Enter Record No</string>
+    <string name="edit">Edit</string>
+    <string name="submit">Submit</string>
+    <string name="enter_treatment">enter Treatment</string>
+    <string name="enter_medication">Enter Medication</string>
+    <string name="enter_patient_s_medical_no">Enter patient\'s Medical No</string>
+    <string name="enter_patient_s_illness">Enter patient\'s illness</string>
+    <string name="enter_patient_s_username">Enter patient\'s username</string>
+    <string name="patient_record_edit">Patient Record Edit</string>
     <string-array name="timeframe">
         <item>Select the time you are available</item>
-        <item>7 - 9</item>
-        <item>9 - 10</item>
-        <item>10 - 12</item>
-        <item>12 - 14</item>
-        <item>14 - 16</item>
-        <item>18 - 20</item>
-        <item>20 - 22</item>
-        <item>22 - 24</item>
+        <item>6 - 12</item>
+        <item>9 - 15</item>
+        <item>12 - 18</item>
+        <item>15 - 22</item>
+        <item>18 - 00</item>
     </string-array>
     <string-array name="departments">
         <item>Select your department</item>
@@ -33,5 +44,10 @@
         <item>Select gender</item>
         <item>Male</item>
         <item>Female</item>
+    </string-array>
+    <string-array name="allergy">
+        <item>Patient has allergy</item>
+        <item>Yes</item>
+        <item>No</item>
     </string-array>
 </resources>

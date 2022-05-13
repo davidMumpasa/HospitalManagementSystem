@@ -34,6 +34,34 @@
             android:textStyle="bold"
             tools:textAlignment="center" />
 
+
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <RadioButton
+                    android:id="@+id/radioPatient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patient" />
+
+                <RadioButton
+                    android:id="@+id/radioDoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Doctor" />
+
+                <RadioButton
+                    android:id="@+id/radioAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admin" />
+            </RadioGroup>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

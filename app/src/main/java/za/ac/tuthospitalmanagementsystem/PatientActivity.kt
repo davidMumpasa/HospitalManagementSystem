@@ -4,14 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PatientActivity : AppCompatActivity() {
     lateinit var toggle : ActionBarDrawerToggle
-
+    //private val sdf : SimpleDateFormat("dd/MM/yyyy HH:mm")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,22 @@ class PatientActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
+        val nameTextView = findViewById<TextView>(R.id.textViewName)
+        val usernameTextView = findViewById<TextView>(R.id.textViewUsername)
+        val numberTextView = findViewById<TextView>(R.id.textViewUserNumber)
+        val dateTextView = findViewById<TextView>(R.id.textViewTime)
+
+        val name= intent.getStringExtra("name")
+        val surname= intent.getStringExtra("surname")
+        val number= intent.getStringExtra("number")
+        val username= intent.getStringExtra("userName")
+
+
+        val date = Date()
+        dateTextView.text = (date).toString()
+        nameTextView.text = "$name $surname"
+        usernameTextView.text = username
+        numberTextView.text = number
         var nav_view = findViewById<NavigationView>(R.id.nav_view)
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
