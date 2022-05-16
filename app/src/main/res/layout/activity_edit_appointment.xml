@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AppointmentActivity">
+    tools:context=".EditAppointmentActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,22 +20,34 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
         <TextView
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MAKE AN APPOINTMENT"
+            android:text="UPDATE AN APPOINTMENT"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"/>
 
-        <EditText
-            android:id="@+id/editTextDisease"
+        <TextView
+            android:id="@+id/appointmentNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:text="Appointment number"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/textViewDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Doctor Username"
+            android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:inputType="textPersonName"
-            android:hint="Appointment description"/>
+            android:textAlignment="center"/>
 
         <Spinner
             android:id="@+id/spinnerAvailability"
@@ -54,23 +65,16 @@
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:ems="10"
             android:textSize="20sp"
             android:inputType="date"
+            android:textAlignment="center"
             android:hint="Date"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="40dp">
-
-            <Button
-                android:id="@+id/buttonBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_background"
-                android:text="Back" />
 
             <Button
                 android:id="@+id/buttonSubmit"

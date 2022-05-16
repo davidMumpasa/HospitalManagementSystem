@@ -55,9 +55,6 @@ class AdminActivity : AppCompatActivity() {
                 R.id.appointment->{
                     goToAppointment()
                 }
-                R.id.notification->{
-                    goToNotification()
-                }
                 R.id.logout->{
                     goToLogin()
                 }
@@ -67,11 +64,6 @@ class AdminActivity : AppCompatActivity() {
             }
             true
         }
-    }
-
-    private fun goToNotification() {
-        val intent = Intent(this,AppointmentActivity::class.java)
-        startActivity(intent)
     }
 
     private fun goToDoctors() {
@@ -90,7 +82,7 @@ class AdminActivity : AppCompatActivity() {
     }
 
     private fun goToAppointment() {
-        val intent = Intent(this,AppointmentActivity::class.java)
+        val intent = Intent(this,AdminAppointmentActivity::class.java)
         startActivity(intent)
     }
 

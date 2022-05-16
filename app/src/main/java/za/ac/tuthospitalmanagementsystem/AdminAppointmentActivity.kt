@@ -1,11 +1,59 @@
 package za.ac.tuthospitalmanagementsystem
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import java.lang.StringBuilder
 
 class AdminAppointmentActivity : AppCompatActivity() {
+
+    private lateinit var database : DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_appointment)
+        val buttonEdit = findViewById<Button>(R.id.buttonEdit)
+
+        loadAppointment()
+        buttonEdit.setOnClickListener {
+            goToEditAppointment()
+        }
+    }
+
+    private fun goToEditAppointment() {
+        val editTextAppointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo).text.toString()
+
+        intent = Intent(this,EditAppointmentActivity::class.java)
+        intent.putExtra("appointmentNo",editTextAppointmentNo)
+        startActivity(intent)
+    }
+
+    private fun loadAppointment() {
+        val textViewAppointments = findViewById<TextView>(R.id.textViewAppointments)
+
+        database = FirebaseDatabase.getInstance().getReference("Appointment")
+        database.get().addOnSuccessListener {
+            var sb = StringBuilder()
+            for(i in it.children){
+
+                var availability = i.child("availability").value
+                var date = i.child("date").value
+                var disease = i.child("disease").value
+                var doctor = i.child("doctor").value
+                var patient = i.child("patient").value
+                var id = i.key
+
+                sb.append("Appointment number: $id\nPatient: $patient\nDoctor: $doctor\nAvailability: $availability\nDate: $date\nDisease: $disease\n_____________________________\n")
+            }
+            textViewAppointments.text = sb
+        }.addOnFailureListener {
+            Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
+        }
     }
 }

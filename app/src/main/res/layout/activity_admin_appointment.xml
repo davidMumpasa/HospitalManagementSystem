@@ -20,13 +20,28 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
         <TextView
-            android:id="@+id/textViewDoctors"
+            android:id="@+id/textViewAppointments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="No appointments"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextAppointmentNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Appointment No"/>
+
+        <Button
+            android:id="@+id/buttonEdit"
+            android:background="@drawable/button_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit" />
 
     </LinearLayout>
 </ScrollView>

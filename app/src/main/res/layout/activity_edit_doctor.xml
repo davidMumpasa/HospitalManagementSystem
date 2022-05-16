@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".DoctorRegisterActivity">
+    tools:context=".EditDoctorActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,20 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="Doctor Registration"
+            android:text="Edit Doctor Information"
             android:textColor="#546E7A"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:textAlignment="center" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:src="@drawable/profile_image"
-            app:civ_border_color="#ff000000"
-            app:civ_border_width="2dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -95,29 +85,6 @@
             app:hintTextAppearance="@color/design_default_color_primary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_number"
-                android:hint="Enter ID No"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,40 +97,6 @@
                 android:textColorHint="#000"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_profile"
-                android:hint="Enter Age"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Spinner
-            android:id="@+id/spinnerGender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:popupBackground="@color/white"
-            android:entries="@array/gender"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -223,63 +156,17 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_lock"
-                android:hint="enter username"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_lock"
-                android:hint="create password"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <Button
-            android:id="@+id/buttonRegister"
+            android:id="@+id/buttonEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="Register now"
+            android:text="Submit"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="20sp"/>
-
     </LinearLayout>
 </ScrollView>

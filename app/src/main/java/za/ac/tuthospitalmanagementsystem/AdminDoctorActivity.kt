@@ -1,5 +1,6 @@
 package za.ac.tuthospitalmanagementsystem
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -40,7 +41,11 @@ class AdminDoctorActivity : AppCompatActivity() {
     }
 
     private fun goToDoctorEdit() {
-        TODO("Not yet implemented")
+        val editTextDoctorId = findViewById<EditText>(R.id.editTextDoctorId).text.toString()
+
+        intent = Intent(this,EditDoctorActivity::class.java)
+        intent.putExtra("username",editTextDoctorId)
+        startActivity(intent)
     }
 
     private fun loadingDoctor() {
