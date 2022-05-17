@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.lang.StringBuilder
@@ -16,7 +17,10 @@ class AppointmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_appointment)
 
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Appointments"
 
         getAppointment()
     }

@@ -23,6 +23,9 @@ class PatientActivity : AppCompatActivity() {
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         var button_setAppointment = findViewById<Button>(R.id.buttonSetAppointment)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Patient"
+
         val name= intent.getStringExtra("name")
         val surname= intent.getStringExtra("surname")
         val number= intent.getStringExtra("number")

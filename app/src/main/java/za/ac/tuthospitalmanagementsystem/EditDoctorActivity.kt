@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -17,7 +18,10 @@ class EditDoctorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_doctor)
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Update Doctor Details"
         val username :String = intent.getStringExtra("username").toString()
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
 

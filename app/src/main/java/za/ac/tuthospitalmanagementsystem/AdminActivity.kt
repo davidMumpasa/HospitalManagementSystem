@@ -36,6 +36,8 @@ class AdminActivity : AppCompatActivity() {
         var drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Admin"
         toggle  = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()

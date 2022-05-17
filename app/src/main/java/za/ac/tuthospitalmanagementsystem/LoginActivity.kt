@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -22,7 +23,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Login"
         val textViewRegister = findViewById<TextView>(R.id.textViewRegister)
         val loginButton = findViewById<Button>(R.id.buttonLogin)
         radioPatient = findViewById<RadioButton>(R.id.radioPatient)

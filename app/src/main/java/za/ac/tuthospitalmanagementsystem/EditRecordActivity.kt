@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -19,7 +20,10 @@ class EditRecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_record)
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Update Record"
         val recordNo:String = intent.getStringExtra("recordNo").toString()
 
         val user = findViewById<TextView>(R.id.textViewRecordNo)

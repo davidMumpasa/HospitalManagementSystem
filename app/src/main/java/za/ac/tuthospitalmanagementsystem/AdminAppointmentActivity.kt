@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.lang.StringBuilder
@@ -21,7 +22,10 @@ class AdminAppointmentActivity : AppCompatActivity() {
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
 
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Appointments"
         loadAppointment()
         buttonEdit.setOnClickListener {
             goToEditAppointment()

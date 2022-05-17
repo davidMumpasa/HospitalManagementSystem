@@ -20,6 +20,8 @@ class DoctorActivity : AppCompatActivity() {
         var drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Doctor"
         val nameTextView = findViewById<TextView>(R.id.textViewName)
         val usernameTextView = findViewById<TextView>(R.id.textViewUsername)
         val numberTextView = findViewById<TextView>(R.id.textViewUserNumber)

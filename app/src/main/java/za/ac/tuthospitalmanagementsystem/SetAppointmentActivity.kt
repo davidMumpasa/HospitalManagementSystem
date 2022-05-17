@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -15,7 +16,10 @@ class SetAppointmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_appointment)
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Set Appointment"
         var buttonBack = findViewById<Button>(R.id.buttonBack)
         var buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
 

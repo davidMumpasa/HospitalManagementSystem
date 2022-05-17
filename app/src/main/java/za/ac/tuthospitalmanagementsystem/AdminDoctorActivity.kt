@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.lang.StringBuilder
@@ -19,6 +20,10 @@ class AdminDoctorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_admin_doctor)
         loadingDoctor()
 
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Doctors"
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
         buttonEdit.setOnClickListener {
             goToDoctorEdit()
