@@ -3,13 +3,11 @@ package za.ac.tuthospitalmanagementsystem
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import java.text.SimpleDateFormat
 import java.util.*
 
 class DoctorActivity : AppCompatActivity() {
@@ -30,10 +28,10 @@ class DoctorActivity : AppCompatActivity() {
         val date = Date()
         dateTextView.text = (date).toString()
 
-        val name= intent.getStringExtra("name")
-        val surname= intent.getStringExtra("surname")
-        val number= intent.getStringExtra("number")
-        val username= intent.getStringExtra("userName")
+        val name: String = intent.getStringExtra("name").toString()
+        val surname: String= intent.getStringExtra("surname").toString()
+        val number: String= intent.getStringExtra("number").toString()
+        val username: String= intent.getStringExtra("username").toString()
 
         nameTextView.text = "$name $surname"
         usernameTextView.text = username
@@ -47,7 +45,7 @@ class DoctorActivity : AppCompatActivity() {
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.appointment->{
-                    goToAppointment()
+                    goToAppointment(username,name,surname,number)
                 }
                 R.id.patientRecord->{
                     goToPatientRecord()
@@ -72,8 +70,12 @@ class DoctorActivity : AppCompatActivity() {
         val intent = Intent(this,PatientRecordActivity::class.java)
         startActivity(intent)
     }
-    private fun goToAppointment() {
+    private fun goToAppointment(username: String, name: String, surname: String, number: String) {
         val intent = Intent(this,DoctorAppointmentsActivity::class.java)
+        intent.putExtra("username",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 

@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                     if(password.contentEquals(passwordData)){
                         val name : String = it.child("name").value.toString()
                         val surname : String = it.child("surname").value.toString()
-                        val number : String = it.child("phone").value.toString()
+                        val number : String = it.child("number").value.toString()
 
                         val intent = Intent(this,AdminActivity::class.java)
                         intent.putExtra("name",name)
@@ -100,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
                         intent.putExtra("name",name)
                         intent.putExtra("surname",surname)
                         intent.putExtra("number",number)
-                        intent.putExtra("userName",userName)
+                        intent.putExtra("username",userName)
                         startActivity(intent)
                         Toast.makeText(this,"Login successful",Toast.LENGTH_LONG).show()
                     }else{
@@ -127,7 +127,7 @@ class LoginActivity : AppCompatActivity() {
 
                         val name : String = it.child("name").value.toString()
                         val surname : String = it.child("surname").value.toString()
-                        val number : String = it.child("phone").value.toString()
+                        val number : String = it.child("phoneNumber").value.toString()
 
                         val intent = Intent(this,PatientActivity::class.java)
                         intent.putExtra("name",name)

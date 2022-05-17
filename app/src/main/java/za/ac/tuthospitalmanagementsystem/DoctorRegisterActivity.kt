@@ -14,7 +14,7 @@ class DoctorRegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_register)
-        val textViewBack = findViewById<TextView>(R.id.textViewBack)
+        //val textViewBack = findViewById<TextView>(R.id.textViewBack)
 
 
 
@@ -27,9 +27,6 @@ class DoctorRegisterActivity : AppCompatActivity() {
                 val intent = Intent(this,AdminActivity::class.java)
                 startActivity(intent)
             }
-        }
-        textViewBack.setOnClickListener {
-            goToLoginPage()
         }
     }
 

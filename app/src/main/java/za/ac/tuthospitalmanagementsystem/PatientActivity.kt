@@ -9,12 +9,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import java.text.SimpleDateFormat
 import java.util.*
 
 class PatientActivity : AppCompatActivity() {
     lateinit var toggle : ActionBarDrawerToggle
     //private val sdf : SimpleDateFormat("dd/MM/yyyy HH:mm")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +23,13 @@ class PatientActivity : AppCompatActivity() {
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         var button_setAppointment = findViewById<Button>(R.id.buttonSetAppointment)
 
+        val name= intent.getStringExtra("name")
+        val surname= intent.getStringExtra("surname")
+        val number= intent.getStringExtra("number")
+        val username : String= intent.getStringExtra("userName").toString()
+
         button_setAppointment.setOnClickListener {
-            goToSetAppointment()
+            goToSetAppointment(username)
         }
         toggle  = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer)
         drawerLayout.addDrawerListener(toggle)
@@ -35,10 +40,7 @@ class PatientActivity : AppCompatActivity() {
         val numberTextView = findViewById<TextView>(R.id.textViewUserNumber)
         val dateTextView = findViewById<TextView>(R.id.textViewTime)
 
-        val name= intent.getStringExtra("name")
-        val surname= intent.getStringExtra("surname")
-        val number= intent.getStringExtra("number")
-        val username= intent.getStringExtra("userName")
+
 
 
         val date = Date()
@@ -49,27 +51,23 @@ class PatientActivity : AppCompatActivity() {
         var nav_view = findViewById<NavigationView>(R.id.nav_view)
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.appointment->{
-                    goToAppointment()
-                }
-                R.id.logout->{
-                    goToLogin()
-                }
-                R.id.profile->{
-                    goToProfile()
-                }
+                R.id.appointment-> goToAppointment(username)
+                R.id.logout-> goToLogin()
+                R.id.profile-> goToProfile(username)
             }
             true
         }
     }
 
-    private fun goToSetAppointment() {
+    private fun goToSetAppointment(username: String) {
         val intent = Intent(this,SetAppointmentActivity::class.java)
+        intent.putExtra("username",username)
         startActivity(intent)
     }
 
-    private fun goToAppointment() {
+    private fun goToAppointment(username: String) {
         val intent = Intent(this,AppointmentActivity::class.java)
+        intent.putExtra("username",username)
         startActivity(intent)
     }
 
@@ -78,8 +76,9 @@ class PatientActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun goToProfile() {
+    private fun goToProfile(username: String) {
         val intent = Intent(this,ProfileActivity::class.java)
+        intent.putExtra("username",username)
         startActivity(intent)
     }
 }

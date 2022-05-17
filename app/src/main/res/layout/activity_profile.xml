@@ -35,24 +35,31 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textViewId"
+    <EditText
+        android:id="@+id/editTextViewName"
+        android:hint="name"
+        android:layout_margin="20dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editTextViewSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:text="id"
-        android:textAllCaps="true"
+        android:hint="surname"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/textViewName"
-        android:text="name"
+        android:id="@+id/editTextViewNumber"
         android:layout_margin="20dp"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:hint="number"
         android:gravity="center"
         android:textAllCaps="true"
         android:textColor="@color/black"
@@ -60,29 +67,15 @@
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/textViewSurname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="surname"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/textViewNumber"
+        android:id="@+id/editTextViewAddress"
         android:layout_margin="20dp"
         android:textSize="18sp"
-        android:text="number"
-        android:textStyle="bold"
+        android:hint="Address"
         android:gravity="center"
-        android:textAllCaps="true"
         android:textColor="@color/black"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
     <Button
         android:id="@+id/buttonEdit"
         android:background="@drawable/button_background"

@@ -18,12 +18,23 @@ class RecordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
 
-        //val record = findViewById<TextView>(R.id.textViewRecord)
-        //val recordNo = findViewById<EditText>(R.id.editTextRecordNo).text.toString()
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
+        val buttonDelete = findViewById<Button>(R.id.buttonDelete)
         viewAllRecords()
         buttonEdit.setOnClickListener {
             goToEdit()
+        }
+        buttonDelete.setOnClickListener {
+            deleteRecord()
+        }
+        viewAllRecords()
+    }
+
+    private fun deleteRecord() {
+        recordNo = findViewById<EditText>(R.id.editTextRecordNo).text.toString()
+        database = FirebaseDatabase.getInstance().getReference("PatientRecord").child(recordNo)
+        database.removeValue().addOnSuccessListener {
+            Toast.makeText(this,"Record removed",Toast.LENGTH_LONG).show()
         }
     }
 

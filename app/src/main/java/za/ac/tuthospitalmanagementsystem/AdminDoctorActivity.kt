@@ -72,7 +72,7 @@ class AdminDoctorActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Doctor").child(patientEmail)
         database.removeValue().addOnSuccessListener {
-            Toast.makeText(this,"Patient removed",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Doctor removed",Toast.LENGTH_LONG).show()
         }
     }
 }

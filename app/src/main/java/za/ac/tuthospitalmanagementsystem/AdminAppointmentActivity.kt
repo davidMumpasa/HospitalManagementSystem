@@ -19,10 +19,24 @@ class AdminAppointmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_appointment)
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
+        val buttonDelete = findViewById<Button>(R.id.buttonDelete)
+
 
         loadAppointment()
         buttonEdit.setOnClickListener {
             goToEditAppointment()
+        }
+        buttonDelete.setOnClickListener {
+            deleteAppointment()
+        }
+        loadAppointment()
+    }
+
+    private fun deleteAppointment() {
+        val editTextAppointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo).text.toString()
+        database = FirebaseDatabase.getInstance().getReference("Appointment").child(editTextAppointmentNo)
+        database.removeValue().addOnSuccessListener {
+            Toast.makeText(this,"Appointment removed",Toast.LENGTH_LONG).show()
         }
     }
 
@@ -45,7 +59,10 @@ class AdminAppointmentActivity : AppCompatActivity() {
                 var availability = i.child("availability").value
                 var date = i.child("date").value
                 var disease = i.child("disease").value
-                var doctor = i.child("doctor").value
+                var doctor : String = i.child("doctor").value.toString()
+                if(doctor.contentEquals("null")){
+                    doctor = "Not yet assigned"
+                }
                 var patient = i.child("patient").value
                 var id = i.key
 

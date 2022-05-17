@@ -38,7 +38,7 @@ class EditRecordActivity : AppCompatActivity() {
         val allergy = findViewById<Spinner>(R.id.spinnerAllergy).selectedItem.toString()
         val treatment = findViewById<TextInputEditText>(R.id.textInputEditTextTreatment).text.toString()
 
-        database = FirebaseDatabase.getInstance().getReference("Doctor")
+        database = FirebaseDatabase.getInstance().getReference("PatientRecord")
         var updateRecord = mapOf<String,String>(
             "illness" to illness,
             "medicalNo" to medicalNo,

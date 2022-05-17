@@ -19,6 +19,7 @@
     <string name="enter_patient_s_illness">Enter patient\'s illness</string>
     <string name="enter_patient_s_username">Enter patient\'s username</string>
     <string name="patient_record_edit">Patient Record Edit</string>
+    <string name="delete">delete</string>
     <string-array name="timeframe">
         <item>Select the time you are available</item>
         <item>6 - 12</item>

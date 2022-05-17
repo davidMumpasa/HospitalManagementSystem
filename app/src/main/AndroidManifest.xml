@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HospitalManagement">
         <activity
+            android:name=".PostponeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditDoctorActivity"
             android:exported="false" />
         <activity
@@ -50,9 +56,6 @@
             android:exported="false" />
         <activity
             android:name=".SetAppointmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AppointmentActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"

@@ -33,13 +33,15 @@ class SetAppointmentActivity : AppCompatActivity() {
         val editTextDisease :String = findViewById<EditText>(R.id.editTextDisease).text.toString()
         val spinnerAvailability :String = findViewById<Spinner>(R.id.spinnerAvailability).selectedItem.toString()
         val editTextDate : String = findViewById<EditText>(R.id.editTextDate).text.toString()
+        var username : String = intent.getStringExtra("username").toString()
 
         val database  = Firebase.database
         val myref = database.getReference("Appointment").child(appointmentNumber.toString())
 
-        myref.setValue(Appointment(patient = "hh", doctor="null",editTextDisease,spinnerAvailability,editTextDate))
+        myref.setValue(Appointment(username, doctor="null",editTextDisease,spinnerAvailability,editTextDate))
 
         val intent = Intent(this,AppointmentActivity::class.java)
+        intent.putExtra("username",username)
         startActivity(intent)
     }
 
