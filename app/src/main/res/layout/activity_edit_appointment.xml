@@ -42,7 +42,8 @@
 
         <EditText
             android:id="@+id/textViewDoctor"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:hint="Doctor Username"
             android:layout_marginTop="15dp"
@@ -61,16 +62,17 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"/>
+
         <EditText
             android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:layout_gravity="center"
             android:ems="10"
-            android:textSize="20sp"
-            android:inputType="date"
+            android:hint="Date"
             android:textAlignment="center"
-            android:hint="Date"/>
+            android:textSize="20sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

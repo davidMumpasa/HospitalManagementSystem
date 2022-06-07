@@ -22,6 +22,10 @@
         android:title="Profile"
         android:icon="@drawable/ic_profile"/>
     <item
+        android:id="@+id/report"
+        android:title="Save Report"
+        android:icon="@drawable/ic_myfeed"/>
+    <item
         android:id="@+id/logout"
         android:title="Logout"
         android:icon="@drawable/ic_logout"/>
