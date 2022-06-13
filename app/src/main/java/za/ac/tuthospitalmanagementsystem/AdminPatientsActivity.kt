@@ -1,5 +1,6 @@
 package za.ac.tuthospitalmanagementsystem
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -22,9 +23,15 @@ class AdminPatientsActivity : AppCompatActivity() {
         supportActionBar!!.title = "Patients"
         loadingPatient()
 
-        
+        val name = intent.getStringExtra("name").toString()
+        val surname= intent.getStringExtra("surname").toString()
+        val number= intent.getStringExtra("number").toString()
+        val username= intent.getStringExtra("userName").toString()
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
-
+        val buttonClose = findViewById<Button>(R.id.buttonClose)
+        buttonClose.setOnClickListener {
+            goToAdmin(name, surname, number, username)
+        }
         buttonDelete.setOnClickListener {
             val editTextPatientId = findViewById<TextView>(R.id.editTextDoctorId)
 
@@ -37,6 +44,15 @@ class AdminPatientsActivity : AppCompatActivity() {
             }
             loadingPatient()
         }
+    }
+
+    private fun goToAdmin(name: String?, surname: String?, number: String?, username: String?) {
+        intent = Intent(this,AdminActivity::class.java)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
+        intent.putExtra("userName",username)
+        startActivity(intent)
     }
 
     private fun loadingPatient() {

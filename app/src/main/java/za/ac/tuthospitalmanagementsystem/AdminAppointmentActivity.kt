@@ -23,12 +23,15 @@ class AdminAppointmentActivity : AppCompatActivity() {
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
-
+        val name= intent.getStringExtra("name")
+        val surname= intent.getStringExtra("surname")
+        val number= intent.getStringExtra("number")
+        val username= intent.getStringExtra("userName")
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Appointments"
         loadAppointment()
         buttonEdit.setOnClickListener {
-            goToEditAppointment()
+            goToEditAppointment(name,surname,number,username)
         }
         buttonDelete.setOnClickListener {
             deleteAppointment()
@@ -44,10 +47,19 @@ class AdminAppointmentActivity : AppCompatActivity() {
         }
     }
 
-    private fun goToEditAppointment() {
+    private fun goToEditAppointment(
+        name: String?,
+        surname: String?,
+        number: String?,
+        username: String?
+    ) {
         val editTextAppointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo).text.toString()
 
         intent = Intent(this,EditAppointmentActivity::class.java)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
+        intent.putExtra("userName",username)
         intent.putExtra("appointmentNo",editTextAppointmentNo)
         startActivity(intent)
     }

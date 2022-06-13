@@ -24,13 +24,20 @@ class EditDoctorActivity : AppCompatActivity() {
         supportActionBar!!.title = "Update Doctor Details"
         val username :String = intent.getStringExtra("username").toString()
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
-
+        val name = intent.getStringExtra("name").toString()
+        val adminSurname= intent.getStringExtra("surname").toString()
+        val number= intent.getStringExtra("number").toString()
+        val adminUsername= intent.getStringExtra("userName").toString()
         buttonEdit.setOnClickListener {
-            editDoctor(username)
+            editDoctor(username,name,adminSurname,number,adminUsername)
         }
     }
 
-    private fun editDoctor(username: String) {
+    private fun editDoctor(username: String,
+                           adminName: String,
+                           adminSurname: String,
+                           adminNumber: String,
+                           adminUsername: String) {
         val availability :String = findViewById<Spinner>(R.id.spinnerAvailability).selectedItem.toString()
         val department :String = findViewById<Spinner>(R.id.spinnerDepartment).selectedItem.toString()
         val specialization :String = findViewById<Spinner>(R.id.spinnerSpecialization).selectedItem.toString()
@@ -51,7 +58,11 @@ class EditDoctorActivity : AppCompatActivity() {
         )
         database.child(username).updateChildren(updateDoctor)
         Toast.makeText(this,"Updated",Toast.LENGTH_SHORT)
-        intent = Intent(this,AdminDoctorActivity::class.java)
+        intent = Intent(this,AdminActivity::class.java)
+        intent.putExtra("name",adminName)
+        intent.putExtra("surname",adminSurname)
+        intent.putExtra("number",adminSurname)
+        intent.putExtra("userName",adminUsername)
         startActivity(intent)
     }
 }

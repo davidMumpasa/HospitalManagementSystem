@@ -63,22 +63,19 @@ class AdminActivity : AppCompatActivity() {
                     goToDoctorRegister()
                 }
                 R.id.patients->{
-                    goToPatients()
+                    goToPatients(name,surname,number,username)
                 }
                 R.id.doctors->{
                     goToDoctors()
                 }
                 R.id.appointment->{
-                    goToAppointment()
+                    goToAppointment(name,surname,number,username)
                 }
                 R.id.logout->{
                     goToLogin()
                 }
-                R.id.report->{
+                R.id.report-> {
                     saveReport()
-                }
-                R.id.profile->{
-                    goToProfile()
                 }
             }
             true
@@ -196,8 +193,12 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun goToPatients() {
+    private fun goToPatients(name: String?, surname: String?, number: String?, username: String?) {
         val intent = Intent(this,AdminPatientsActivity::class.java)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
+        intent.putExtra("userName",username)
         startActivity(intent)
     }
 
@@ -206,18 +207,22 @@ class AdminActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun goToAppointment() {
+    private fun goToAppointment(
+        name: String?,
+        surname: String?,
+        number: String?,
+        username: String?
+    ) {
         val intent = Intent(this,AdminAppointmentActivity::class.java)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
+        intent.putExtra("userName",username)
         startActivity(intent)
     }
 
     private fun goToLogin() {
         val intent = Intent(this,LoginActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun goToProfile() {
-        val intent = Intent(this,ProfileActivity::class.java)
         startActivity(intent)
     }
 }

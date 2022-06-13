@@ -21,12 +21,15 @@ class AdminDoctorActivity : AppCompatActivity() {
         loadingDoctor()
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
-
+        val name = intent.getStringExtra("name").toString()
+        val surname= intent.getStringExtra("surname").toString()
+        val number= intent.getStringExtra("number").toString()
+        val username= intent.getStringExtra("userName").toString()
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Doctors"
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
         buttonEdit.setOnClickListener {
-            goToDoctorEdit()
+            goToDoctorEdit(name,surname,number,username)
         }
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
 
@@ -45,11 +48,15 @@ class AdminDoctorActivity : AppCompatActivity() {
 
     }
 
-    private fun goToDoctorEdit() {
+    private fun goToDoctorEdit(name: String, surname: String, number: String, username: String) {
         val editTextDoctorId = findViewById<EditText>(R.id.editTextDoctorId).text.toString()
 
         intent = Intent(this,EditDoctorActivity::class.java)
         intent.putExtra("username",editTextDoctorId)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
+        intent.putExtra("userName",username)
         startActivity(intent)
     }
 
@@ -61,14 +68,20 @@ class AdminDoctorActivity : AppCompatActivity() {
             var sb = StringBuilder()
             for(i in it.children){
 
-                var name = i.child("name").getValue()
-                var surname = i.child("surname").getValue()
-                var gender = i.child("gender").getValue()
+                var name = i.child("name").value
+                var surname = i.child("surname").value
+                var gender = i.child("gender").value
+                var age = i.child("age").value
+                var phone = i.child("phone").value
+                var department = i.child("department").value
+                var specialization = i.child("specialization").value
+                var password = i.child("password").value
+                var role = i.child("role").value
                 var id = i.key
 
                 sb.append("Username $id\nName $name\nSurname $surname\nGender $gender\n_____________________________\n")
             }
-            textViewDoctors.setText(sb)
+            textViewDoctors.text = sb
         }.addOnFailureListener {
             Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
         }
