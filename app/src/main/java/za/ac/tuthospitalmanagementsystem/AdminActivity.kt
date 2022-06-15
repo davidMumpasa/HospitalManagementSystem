@@ -19,6 +19,7 @@ import com.itextpdf.text.Paragraph
 import com.itextpdf.text.pdf.PdfWriter
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.xwpf.usermodel.XWPFDocument
+import java.io.File
 import java.io.FileOutputStream
 import java.lang.StringBuilder
 import java.text.SimpleDateFormat
@@ -105,26 +106,40 @@ class AdminActivity : AppCompatActivity() {
         val wordDoc = XWPFDocument()
         val excelDoc = HSSFWorkbook()
         val mFilename = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
-        val mFilePath = Environment.getExternalStorageDirectory().toString() + "/" + mFilename + ".pdf"
-        val wordFilePath = Environment.getExternalStorageDirectory().toString() + "/" + mFilename + ".docx"
-        val excelFilePath = Environment.getExternalStorageDirectory().toString() + "/" + mFilename + ".xls"
-        val txtFilePath = Environment.getExternalStorageDirectory().toString() + "/" + mFilename + ".txt"
+        val mFilePath = "$mFilename.pdf"
+        val wordFilePath = "$mFilename.docx"
+        val excelFilePath = "$mFilename.xls"
+        val txtFilePath = "$mFilename.txt"
         var data = ""
         try{
             //word
             val para = wordDoc.createParagraph()
             val paraRun = para.createRun()
             //pdf
-            PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
+            PdfWriter.getInstance(mDoc, FileOutputStream(File(applicationContext.getExternalFilesDir("data"),mFilePath)))
             mDoc.open()
             //excel
+            var excelNumber = 1
             val excelSheet = excelDoc.createSheet("Hospital Report")
             val excelRow = excelSheet.createRow(0)
-            val excelCell = excelRow.createCell(0)
+            val excelCell0 = excelRow.createCell(0)
+            excelCell0.setCellValue("Appointment Number")
 
-            excelCell.setCellValue("ertyu")
-            excelDoc.write(FileOutputStream(excelFilePath))
-            excelDoc.close()
+            val excelCell1 = excelRow.createCell(1)
+            excelCell1.setCellValue("Patient ID")
+
+            val excelCell2 = excelRow.createCell(2)
+            excelCell2.setCellValue("Doctor ID")
+
+            val excelCell3 = excelRow.createCell(3)
+            excelCell3.setCellValue("Date")
+
+            val excelCell4 = excelRow.createCell(4)
+            excelCell4.setCellValue("Availability")
+
+            val excelCell5 = excelRow.createCell(5)
+            excelCell5.setCellValue("Appointment Description")
+
 
             var sb = StringBuilder()
             database = FirebaseDatabase.getInstance().getReference("Appointment")
@@ -133,18 +148,38 @@ class AdminActivity : AppCompatActivity() {
                 for(i in it.children){
 
 
-                    var availability = i.child("availability").value
-                    var date = i.child("date").value
-                    var disease = i.child("disease").value
+
+                    var availability = i.child("availability").value.toString()
+                    var date = i.child("date").value.toString()
+                    var disease = i.child("disease").value.toString()
                     var doctor : String = i.child("doctor").value.toString()
                     if(doctor.contentEquals("null")){
                         doctor = "Not yet assigned"
                     }
-                    var patient = i.child("patient").value
-                    var id = i.key
+                    var patient = i.child("patient").value.toString()
+                    var id = i.key.toString()
 
-                    sb.append("Appointment number: $id\nPatient: $patient\nDoctor: $doctor\nAppointment Time: $availability\nDate: $date\nDisease: $disease\n_____________________________\n")
+                    sb.append("Appointment number: $id\nPatient: $patient\nDoctor: $doctor\nAppointment Time: $availability\nDate: $date\nAppointment Description: $disease\n_____________________________\n")
+                    val excelRow = excelSheet.createRow(excelNumber++)
+                    val excelCell0 = excelRow.createCell(0)
+                    excelCell0.setCellValue(id)
 
+                    val excelCell1 = excelRow.createCell(1)
+                    excelCell1.setCellValue(patient)
+
+                    val excelCell2 = excelRow.createCell(2)
+                    excelCell2.setCellValue(doctor)
+
+                    val excelCell3 = excelRow.createCell(3)
+                    excelCell3.setCellValue(date)
+
+                    val excelCell4 = excelRow.createCell(4)
+                    excelCell4.setCellValue(availability)
+
+                    val excelCell5 = excelRow.createCell(5)
+                    excelCell5.setCellValue(disease)
+
+                    //var appointment = Appointment(patient,doctor,disease,availability,date)
                 }
                 data = sb.toString()
 
@@ -156,14 +191,17 @@ class AdminActivity : AppCompatActivity() {
                 //create word
                 paraRun.setText(data)
                 paraRun.fontSize = 18
-                wordDoc.write(FileOutputStream(wordFilePath))
+                wordDoc.write(FileOutputStream(File(applicationContext.getExternalFilesDir("data"),wordFilePath)))
                 wordDoc.close()
 
                 //create txt file
-                val writeIntoFile = FileOutputStream(txtFilePath)
+                val writeIntoFile = FileOutputStream(File(applicationContext.getExternalFilesDir("data"),txtFilePath))
                 writeIntoFile.write(data.toByteArray())
 
-                Toast.makeText(this,"$mFilename.pdf is successfully save",Toast.LENGTH_SHORT).show()
+                //create excel
+                excelDoc.write(FileOutputStream(File(applicationContext.getExternalFilesDir("data"),excelFilePath)))
+                excelDoc.close()
+                Toast.makeText(this,"${applicationContext.getExternalFilesDir("data")} + $mFilename.pdf is successfully save",Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
             }
