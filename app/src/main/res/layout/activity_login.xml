@@ -31,7 +31,19 @@
             tools:ignore="ImageContrastCheck" />
 
         <TextView
+            android:id="@+id/textViewAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Click to go to Health Twitter Accouxnt"
+            android:textColor="#546E7A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:textAlignment="center" />
+        <TextView
             android:id="@+id/textViewTitle"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:gravity="center"
@@ -86,8 +98,8 @@
                     android:id="@+id/textInputEditTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_email"
-                    android:hint="enter your email"
+                    android:drawableStart="@drawable/ic_profile"
+                    android:hint="enter your username"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
                     android:drawablePadding="10dp"

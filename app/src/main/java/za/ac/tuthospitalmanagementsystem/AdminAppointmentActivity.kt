@@ -54,14 +54,24 @@ class AdminAppointmentActivity : AppCompatActivity() {
         username: String?
     ) {
         val editTextAppointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo).text.toString()
+        database = FirebaseDatabase.getInstance().getReference("Appointment").child(editTextAppointmentNo)
+        database.get().addOnSuccessListener {
+            if(it.exists()){
 
-        intent = Intent(this,EditAppointmentActivity::class.java)
-        intent.putExtra("name",name)
-        intent.putExtra("surname",surname)
-        intent.putExtra("number",number)
-        intent.putExtra("userName",username)
-        intent.putExtra("appointmentNo",editTextAppointmentNo)
-        startActivity(intent)
+                intent = Intent(this,EditAppointmentActivity::class.java)
+                intent.putExtra("name",name)
+                intent.putExtra("surname",surname)
+                intent.putExtra("number",number)
+                intent.putExtra("userName",username)
+
+                intent.putExtra("appointmentNo",editTextAppointmentNo)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this,"Appointment Number does not exist",Toast.LENGTH_LONG).show()
+            }
+        }.addOnFailureListener {
+            Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun loadAppointment() {

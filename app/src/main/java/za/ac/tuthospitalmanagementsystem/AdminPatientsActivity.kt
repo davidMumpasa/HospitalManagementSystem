@@ -38,7 +38,7 @@ class AdminPatientsActivity : AppCompatActivity() {
             val patientEmail : String = editTextPatientId.text.toString()
             if(patientEmail.isNotEmpty()){
                 deleteRecord(patientEmail)
-                editTextPatientId.setText("")
+                editTextPatientId.text = ""
             }else{
                 Toast.makeText(this,"Enter patient ID",Toast.LENGTH_LONG).show()
             }
@@ -63,14 +63,14 @@ class AdminPatientsActivity : AppCompatActivity() {
             var sb = StringBuilder()
             for(i in it.children){
 
-                var name = i.child("name").getValue()
-                var surname = i.child("surname").getValue()
-                var gender = i.child("gender").getValue()
+                var name = i.child("name").value
+                var surname = i.child("surname").value
+                var gender = i.child("gender").value
                 var id = i.key
 
                 sb.append("Username $id\nName $name\nSurname $surname\nGender $gender\n_____________________________\n")
             }
-            textViewAppointments.setText(sb)
+            textViewAppointments.text = sb
         }.addOnFailureListener {
             Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
         }

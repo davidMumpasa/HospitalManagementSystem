@@ -23,7 +23,7 @@ class PatientRecordActivity : AppCompatActivity() {
         val buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
 
         buttonSubmit.setOnClickListener {
-            saveRecord();
+            saveRecord()
         }
     }
 

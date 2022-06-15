@@ -18,18 +18,18 @@ class EditDoctorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_doctor)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Update Doctor Details"
         val username :String = intent.getStringExtra("username").toString()
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
-        val name = intent.getStringExtra("name").toString()
+        val adminName = intent.getStringExtra("name").toString()
         val adminSurname= intent.getStringExtra("surname").toString()
-        val number= intent.getStringExtra("number").toString()
+        val adminNumber= intent.getStringExtra("number").toString()
         val adminUsername= intent.getStringExtra("userName").toString()
         buttonEdit.setOnClickListener {
-            editDoctor(username,name,adminSurname,number,adminUsername)
+            editDoctor(username,adminName,adminSurname,adminNumber,adminUsername)
         }
     }
 
@@ -47,7 +47,7 @@ class EditDoctorActivity : AppCompatActivity() {
         val name :String = findViewById<TextInputEditText>(R.id.textInputEditTextFirstName).text.toString()
 
         database = FirebaseDatabase.getInstance().getReference("Doctor")
-        var updateDoctor = mapOf<String,String>(
+        val updateDoctor = mapOf(
             "availability" to availability,
             "department" to department,
             "specialization" to specialization,
@@ -57,11 +57,11 @@ class EditDoctorActivity : AppCompatActivity() {
             "name" to name
         )
         database.child(username).updateChildren(updateDoctor)
-        Toast.makeText(this,"Updated",Toast.LENGTH_SHORT)
+        Toast.makeText(this,"Updated",Toast.LENGTH_SHORT).show()
         intent = Intent(this,AdminActivity::class.java)
         intent.putExtra("name",adminName)
         intent.putExtra("surname",adminSurname)
-        intent.putExtra("number",adminSurname)
+        intent.putExtra("number",adminNumber)
         intent.putExtra("userName",adminUsername)
         startActivity(intent)
     }

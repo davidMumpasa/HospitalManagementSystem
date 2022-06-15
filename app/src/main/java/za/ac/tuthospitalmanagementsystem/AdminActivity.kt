@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -26,7 +25,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AdminActivity : AppCompatActivity() {
-    lateinit var toggle : ActionBarDrawerToggle
+    private lateinit var toggle : ActionBarDrawerToggle
     private lateinit var database : DatabaseReference
     private var STORAGE_CODE = 1001
 
@@ -39,17 +38,17 @@ class AdminActivity : AppCompatActivity() {
         val numberTextView = findViewById<TextView>(R.id.textViewUserNumber)
         val dateTextView = findViewById<TextView>(R.id.textViewTime)
 
-        val name= intent.getStringExtra("name")
-        val surname= intent.getStringExtra("surname")
-        val number= intent.getStringExtra("number")
-        val username= intent.getStringExtra("userName")
+        val name= intent.getStringExtra("name").toString()
+        val surname= intent.getStringExtra("surname").toString()
+        val number= intent.getStringExtra("number").toString()
+        val username= intent.getStringExtra("userName").toString()
         val date = Date()
         dateTextView.text = (date).toString()
         nameTextView.text = "$name $surname"
         usernameTextView.text = username
         numberTextView.text = number
-        var drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Admin"
@@ -57,7 +56,7 @@ class AdminActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        var nav_view = findViewById<NavigationView>(R.id.nav_view)
+        val nav_view = findViewById<NavigationView>(R.id.nav_view)
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.doctorRegister->{
@@ -67,7 +66,7 @@ class AdminActivity : AppCompatActivity() {
                     goToPatients(name,surname,number,username)
                 }
                 R.id.doctors->{
-                    goToDoctors()
+                    goToDoctors(name, surname, number, username)
                 }
                 R.id.appointment->{
                     goToAppointment(name,surname,number,username)
@@ -110,7 +109,7 @@ class AdminActivity : AppCompatActivity() {
         val wordFilePath = "$mFilename.docx"
         val excelFilePath = "$mFilename.xls"
         val txtFilePath = "$mFilename.txt"
-        var data = ""
+        var data: String
         try{
             //word
             val para = wordDoc.createParagraph()
@@ -141,7 +140,7 @@ class AdminActivity : AppCompatActivity() {
             excelCell5.setCellValue("Appointment Description")
 
 
-            var sb = StringBuilder()
+            val sb = StringBuilder()
             database = FirebaseDatabase.getInstance().getReference("Appointment")
             database.get().addOnSuccessListener {
 
@@ -149,15 +148,15 @@ class AdminActivity : AppCompatActivity() {
 
 
 
-                    var availability = i.child("availability").value.toString()
-                    var date = i.child("date").value.toString()
-                    var disease = i.child("disease").value.toString()
+                    val availability = i.child("availability").value.toString()
+                    val date = i.child("date").value.toString()
+                    val disease = i.child("disease").value.toString()
                     var doctor : String = i.child("doctor").value.toString()
                     if(doctor.contentEquals("null")){
                         doctor = "Not yet assigned"
                     }
-                    var patient = i.child("patient").value.toString()
-                    var id = i.key.toString()
+                    val patient = i.child("patient").value.toString()
+                    val id = i.key.toString()
 
                     sb.append("Appointment number: $id\nPatient: $patient\nDoctor: $doctor\nAppointment Time: $availability\nDate: $date\nAppointment Description: $disease\n_____________________________\n")
                     val excelRow = excelSheet.createRow(excelNumber++)
@@ -185,12 +184,12 @@ class AdminActivity : AppCompatActivity() {
 
                 //create pdf
                 mDoc.addAuthor(name + surname)
-                mDoc.add(Paragraph("$data"))
+                mDoc.add(Paragraph(data))
                 mDoc.close()
 
                 //create word
                 paraRun.setText(data)
-                paraRun.fontSize = 18
+                paraRun.fontSize = 16
                 wordDoc.write(FileOutputStream(File(applicationContext.getExternalFilesDir("data"),wordFilePath)))
                 wordDoc.close()
 
@@ -226,8 +225,12 @@ class AdminActivity : AppCompatActivity() {
         }
     }
 
-    private fun goToDoctors() {
+    private fun goToDoctors(name: String?, surname: String?, number: String?, username: String?) {
         val intent = Intent(this,AdminDoctorActivity::class.java)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
+        intent.putExtra("userName",username)
         startActivity(intent)
     }
 

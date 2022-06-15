@@ -21,6 +21,9 @@
     <string name="patient_record_edit">Patient Record Edit</string>
     <string name="delete">delete</string>
     <string name="select">Please select doctor</string>
+    <string name="patient_name">Patient name</string>
+    <string name="_0717783902">0717783902</string>
+    <string name="patient_username">Patient username</string>
     <string-array name="timeframe">
         <item>Select the time you are available</item>
         <item>6 - 12</item>
