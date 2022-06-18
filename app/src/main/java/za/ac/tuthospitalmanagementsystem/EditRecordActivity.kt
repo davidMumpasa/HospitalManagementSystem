@@ -20,22 +20,32 @@ class EditRecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_record)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Update Record"
         val recordNo:String = intent.getStringExtra("recordNo").toString()
+        val name: String = intent.getStringExtra("name").toString()
+        val surname: String= intent.getStringExtra("surname").toString()
+        val number: String= intent.getStringExtra("number").toString()
+        val username: String= intent.getStringExtra("username").toString()
 
         val user = findViewById<TextView>(R.id.textViewRecordNo)
         user.text = recordNo
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
 
         buttonEdit.setOnClickListener {
-            updateRecord(recordNo)
+            updateRecord(recordNo,username,name,surname,number)
         }
     }
 
-    private fun updateRecord(recordNo: String) {
+    private fun updateRecord(
+        recordNo: String,
+        username: String,
+        name: String,
+        surname: String,
+        number: String
+    ) {
         val illness = findViewById<TextInputEditText>(R.id.textInputEditTextIllness).text.toString()
         val medicalNo = findViewById<TextInputEditText>(R.id.textInputEditMedicalNo).text.toString()
         val medication = findViewById<TextInputEditText>(R.id.textInputEditTextMedication).text.toString()
@@ -43,7 +53,7 @@ class EditRecordActivity : AppCompatActivity() {
         val treatment = findViewById<TextInputEditText>(R.id.textInputEditTextTreatment).text.toString()
 
         database = FirebaseDatabase.getInstance().getReference("PatientRecord")
-        var updateRecord = mapOf<String,String>(
+        val updateRecord = mapOf(
             "illness" to illness,
             "medicalNo" to medicalNo,
             "medication" to medication,
@@ -52,9 +62,13 @@ class EditRecordActivity : AppCompatActivity() {
         )
 
         database.child(recordNo).updateChildren(updateRecord)
-        Toast.makeText(this,"Record updated",Toast.LENGTH_SHORT)
+        Toast.makeText(this,"Record updated",Toast.LENGTH_SHORT).show()
 
-        intent = Intent(this,RecordActivity::class.java)
+        intent = Intent(this,DoctorActivity::class.java)
+        intent.putExtra("username",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 }

@@ -12,16 +12,16 @@ import com.google.android.material.navigation.NavigationView
 import java.util.*
 
 class PatientActivity : AppCompatActivity() {
-    lateinit var toggle : ActionBarDrawerToggle
+    private lateinit var toggle : ActionBarDrawerToggle
     //private val sdf : SimpleDateFormat("dd/MM/yyyy HH:mm")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patient)
-        var drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
-        var button_setAppointment = findViewById<Button>(R.id.buttonSetAppointment)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val button_setAppointment = findViewById<Button>(R.id.buttonSetAppointment)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Patient"
@@ -48,10 +48,10 @@ class PatientActivity : AppCompatActivity() {
 
         val date = Date()
         dateTextView.text = (date).toString()
-        nameTextView.text = "$name $surname"
+        "$name $surname".also { nameTextView.text = it }
         usernameTextView.text = username
         numberTextView.text = number
-        var nav_view = findViewById<NavigationView>(R.id.nav_view)
+        val nav_view = findViewById<NavigationView>(R.id.nav_view)
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.appointment-> goToAppointment(username)

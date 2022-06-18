@@ -4,8 +4,9 @@
     <string name="close_navigation_drawer">close navigation drawer</string>
     <string name="todo">todo</string>
     <string name="welcome_to_our_service">Welcome to our public hospital service</string>
+    <string name="selectP">Select patient</string>
     <string name="set_appointment">Set Appointment</string>
-    <string name="patient_record">Patient Record</string>
+    <string name="patient_record">Insert Record</string>
     <string name="appointment">Appointment</string>
     <string name="view_patient_record">View Patient Record</string>
     <string name="logout">Logout</string>
@@ -24,6 +25,14 @@
     <string name="patient_name">Patient name</string>
     <string name="_0717783902">0717783902</string>
     <string name="patient_username">Patient username</string>
+    <string name="click_here_to_retrieve_data">click here to retrieve data</string>
+    <string name="update_an_appointment">UPDATE AN APPOINTMENT</string>
+    <string name="appointment_number">Appointment number</string>
+    <string name="date">Date</string>
+    <string name="save_report">Save Report</string>
+    <string name="doctor">Doctor</string>
+    <string name="patients">Patients</string>
+    <string name="register_doctor">Register Doctor</string>
     <string-array name="timeframe">
         <item>Select the time you are available</item>
         <item>6 - 12</item>

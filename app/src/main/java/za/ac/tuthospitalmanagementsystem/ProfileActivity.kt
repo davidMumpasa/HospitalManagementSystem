@@ -18,10 +18,10 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
-        supportActionBar!!.title = "Update Prifile"
+        supportActionBar!!.title = "Update Profile"
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
 
         buttonEdit.setOnClickListener {
@@ -40,14 +40,14 @@ class ProfileActivity : AppCompatActivity() {
         textViewUsername.text = username
 
         database = FirebaseDatabase.getInstance().getReference("Patient")
-        var updatePatient = mapOf<String,String>(
+        val updatePatient = mapOf(
             "name" to name,
             "surname" to surname,
             "address" to address,
             "phoneNumber" to number
         )
         database.child(username).updateChildren(updatePatient)
-        Toast.makeText(this,"Updated", Toast.LENGTH_SHORT)
+        Toast.makeText(this,"Updated", Toast.LENGTH_SHORT).show()
         intent = Intent(this,PatientActivity::class.java)
         startActivity(intent)
     }

@@ -15,20 +15,21 @@ import kotlin.collections.ArrayList
 class EditAppointmentActivity : AppCompatActivity() {
 
     private lateinit var database : DatabaseReference
-    lateinit var doc:String
+    private lateinit var doc:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_appointment)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Update Appointment"
         val appointmentNo: String = intent.getStringExtra("appointmentNo").toString()
         val date = findViewById<EditText>(R.id.editTextDate)
+        doSomething()
 
         val myCalender = Calendar.getInstance()
-        val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
+        val datePicker = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
             myCalender.set(Calendar.YEAR,year)
             myCalender.set(Calendar.MONTH,month)
             myCalender.set(Calendar.DAY_OF_MONTH,dayOfMonth)
@@ -44,16 +45,9 @@ class EditAppointmentActivity : AppCompatActivity() {
         val surname= intent.getStringExtra("surname").toString()
         val number= intent.getStringExtra("number").toString()
         val username= intent.getStringExtra("userName").toString()
-        val button = findViewById<Button>(R.id.nnn)
-        button.setOnClickListener {
-            doSomething()
-            //Toast.makeText(this,"$name $surname $number $username",Toast.LENGTH_SHORT).show()
-        }
 
         val appointmentNumber = findViewById<TextView>(R.id.appointmentNumber)
         appointmentNumber.text = appointmentNo
-
-
 
         val buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
 
@@ -68,28 +62,17 @@ class EditAppointmentActivity : AppCompatActivity() {
         ////-----------------------------
         database = FirebaseDatabase.getInstance().getReference("Doctor")
         database.get().addOnSuccessListener {
-            var doctors : MutableList<String> = ArrayList()
+            val doctors : MutableList<String> = ArrayList()
             for(i in it.children){
 
-                var name = i.child("name").value.toString()
-                var surname = i.child("surname").value.toString()
-                var gender = i.child("gender").value.toString()
-                var age = i.child("age").value.toString()
-                var phone = i.child("phone").value.toString()
-                var department = i.child("department").value.toString()
-                var specialization = i.child("specialization").value.toString()
-                var password = i.child("password").value.toString()
-                var role = i.child("role").value.toString()
-                var address = i.child("address").value.toString()
-                var id = i.key.toString()
+                val id = i.key.toString()
 
-                //var doctor  = Doctor(name ,surname,id,age, gender,phone, address,availability,department,specialization,password,role)
                 doctors.add(id)
             }
-            val arrayAdapter = ArrayAdapter<String>(this,R.layout.list_of_doctors,doctors)
+            val arrayAdapter = ArrayAdapter(this,R.layout.list_of_doctors,doctors)
 
             actv.setAdapter(arrayAdapter)
-            actv.setOnItemClickListener { adapterView, view, i, l ->
+            actv.setOnItemClickListener { adapterView, _, i, _ ->
                 doc  = adapterView.getItemAtPosition(i).toString()
                 Toast.makeText(this,"You Appointed $doc",Toast.LENGTH_SHORT).show()
             }
@@ -111,13 +94,13 @@ class EditAppointmentActivity : AppCompatActivity() {
         val date = findViewById<EditText>(R.id.editTextDate).text.toString()
 
         database = FirebaseDatabase.getInstance().getReference("Appointment")
-        val updateData = mapOf<String,String>(
+        val updateData = mapOf(
             "availability" to availability,
             "date" to date,
             "doctor" to doc
         )
-        database.child(appointmentNo.toString()).updateChildren(updateData)
-        Toast.makeText(this,"Updated",Toast.LENGTH_SHORT)
+        database.child(appointmentNo).updateChildren(updateData)
+        Toast.makeText(this,"Updated",Toast.LENGTH_SHORT).show()
         intent = Intent(this,AdminActivity::class.java)
         intent.putExtra("name",name)
         intent.putExtra("surname",surname)

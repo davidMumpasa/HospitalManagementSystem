@@ -83,7 +83,6 @@ class AdminActivity : AppCompatActivity() {
     }
 
     private fun saveReport() {
-
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
             if(checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
                 val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -94,8 +93,6 @@ class AdminActivity : AppCompatActivity() {
         }else{
             savePDF()
         }
-
-
     }
 
     private fun savePDF() {
@@ -105,10 +102,10 @@ class AdminActivity : AppCompatActivity() {
         val wordDoc = XWPFDocument()
         val excelDoc = HSSFWorkbook()
         val mFilename = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
-        val mFilePath = "$mFilename.pdf"
-        val wordFilePath = "$mFilename.docx"
-        val excelFilePath = "$mFilename.xls"
-        val txtFilePath = "$mFilename.txt"
+        val mFilePath = "Appointment-$mFilename.pdf"
+        val wordFilePath = "Appointment-$mFilename.docx"
+        val excelFilePath = "Appointment-$mFilename.xls"
+        val txtFilePath = "Appointment-$mFilename.txt"
         var data: String
         try{
             //word

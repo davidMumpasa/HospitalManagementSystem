@@ -20,7 +20,7 @@ class AdminDoctorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_admin_doctor)
         loadingDoctor()
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         val name = intent.getStringExtra("name").toString()
         val surname= intent.getStringExtra("surname").toString()
         val number= intent.getStringExtra("number").toString()
@@ -65,21 +65,17 @@ class AdminDoctorActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Doctor")
         database.get().addOnSuccessListener {
-            var sb = StringBuilder()
+            val sb = StringBuilder()
             for(i in it.children){
 
-                var name = i.child("name").value
-                var surname = i.child("surname").value
-                var gender = i.child("gender").value
-                var age = i.child("age").value
-                var phone = i.child("phone").value
-                var department = i.child("department").value
-                var specialization = i.child("specialization").value
-                var password = i.child("password").value
-                var role = i.child("role").value
-                var id = i.key
+                val name = i.child("name").value
+                val surname = i.child("surname").value
+                val gender = i.child("gender").value
+                val department = i.child("department").value
+                val specialization = i.child("specialization").value
+                val id = i.key
 
-                sb.append("Username $id\nName $name\nSurname $surname\nGender $gender\n_____________________________\n")
+                sb.append("Username $id\nName $name\nSurname $surname\nGender $gender\nspecialization $specialization\ndepartment $department\n_____________________________\n")
             }
             textViewDoctors.text = sb
         }.addOnFailureListener {

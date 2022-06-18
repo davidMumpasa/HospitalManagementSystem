@@ -18,7 +18,7 @@ class PostponeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_postpone)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Postpone Appointment"
@@ -30,7 +30,7 @@ class PostponeActivity : AppCompatActivity() {
         val editTextDate  = findViewById<EditText>(R.id.editTextDate)
 
         val myCalender = Calendar.getInstance()
-        val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
+        val datePicker = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
             myCalender.set(Calendar.YEAR,year)
             myCalender.set(Calendar.MONTH,month)
             myCalender.set(Calendar.DAY_OF_MONTH,dayOfMonth)
@@ -62,12 +62,12 @@ class PostponeActivity : AppCompatActivity() {
         val availability = findViewById<Spinner>(R.id.spinnerAvailability).selectedItem.toString()
 
         database = FirebaseDatabase.getInstance().getReference("Appointment")
-        val updateData = mapOf<String,String>(
+        val updateData = mapOf(
             "availability" to availability,
             "date" to date,
         )
         database.child(appointmentNo).updateChildren(updateData)
-        Toast.makeText(this,"Updated", Toast.LENGTH_SHORT)
+        Toast.makeText(this,"Updated", Toast.LENGTH_SHORT).show()
         intent = Intent(this,DoctorActivity::class.java)
         intent.putExtra("username",username)
         intent.putExtra("name",name)

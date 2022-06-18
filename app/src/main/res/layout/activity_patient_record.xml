@@ -42,23 +42,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextUsername"
+            android:layout_margin="16dp"
+            android:hint="@string/selectP"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_profile"
-                android:hint="@string/enter_patient_s_username"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
+                android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

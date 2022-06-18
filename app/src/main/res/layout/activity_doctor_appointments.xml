@@ -53,15 +53,6 @@
                 android:text="Postpone"
                 android:layout_margin="20dp"
                 android:background="@drawable/button_background"/>
-
-            <Button
-                android:id="@+id/buttonHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
-                android:layout_weight="1"
-                android:layout_margin="20dp"
-                android:text="Home" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

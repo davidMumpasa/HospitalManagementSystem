@@ -3,26 +3,26 @@
 
     <item
         android:id="@+id/doctorRegister"
-        android:title="Register Doctor"
+        android:title="@string/register_doctor"
         android:icon="@drawable/doctor"/>
     <item
         android:id="@+id/patients"
-        android:title="Patients"
+        android:title="@string/patients"
         android:icon="@drawable/patient"/>
     <item
         android:id="@+id/doctors"
-        android:title="Doctor"
+        android:title="@string/doctor"
         android:icon="@drawable/doctor"/>
     <item
         android:id="@+id/appointment"
-        android:title="Appointment"
+        android:title="@string/appointment"
         android:icon="@drawable/ic_myfeed"/>
     <item
         android:id="@+id/report"
-        android:title="Save Report"
+        android:title="@string/save_report"
         android:icon="@drawable/ic_myfeed"/>
     <item
         android:id="@+id/logout"
-        android:title="Logout"
+        android:title="@string/logout"
         android:icon="@drawable/ic_logout"/>
 </menu>

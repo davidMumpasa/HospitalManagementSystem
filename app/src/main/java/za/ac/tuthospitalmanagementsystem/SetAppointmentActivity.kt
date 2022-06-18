@@ -19,16 +19,16 @@ class SetAppointmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_appointment)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Set Appointment"
-        var buttonBack = findViewById<Button>(R.id.buttonBack)
-        var buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
+        val buttonBack = findViewById<Button>(R.id.buttonBack)
+        val buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
         val editTextDate  = findViewById<EditText>(R.id.editTextDate)
 
         val myCalender = Calendar.getInstance()
-        val datePicker = DatePickerDialog.OnDateSetListener{view,year,month,dayOfMonth ->
+        val datePicker = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
             myCalender.set(Calendar.YEAR,year)
             myCalender.set(Calendar.MONTH,month)
             myCalender.set(Calendar.DAY_OF_MONTH,dayOfMonth)
@@ -59,7 +59,7 @@ class SetAppointmentActivity : AppCompatActivity() {
         val editTextDisease :String = findViewById<EditText>(R.id.editTextDisease).text.toString()
         val spinnerAvailability :String = findViewById<Spinner>(R.id.spinnerAvailability).selectedItem.toString()
         val editTextDate : String = findViewById<EditText>(R.id.editTextDate).text.toString()
-        var username : String = intent.getStringExtra("username").toString()
+        val username : String = intent.getStringExtra("username").toString()
 
         val database  = Firebase.database
         val myref = database.getReference("Appointment").child(appointmentNumber.toString())

@@ -17,7 +17,7 @@ class AdminPatientsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_patients)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Patients"
@@ -60,13 +60,13 @@ class AdminPatientsActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Patient")
         database.get().addOnSuccessListener {
-            var sb = StringBuilder()
+            val sb = StringBuilder()
             for(i in it.children){
 
-                var name = i.child("name").value
-                var surname = i.child("surname").value
-                var gender = i.child("gender").value
-                var id = i.key
+                val name = i.child("name").value
+                val surname = i.child("surname").value
+                val gender = i.child("gender").value
+                val id = i.key
 
                 sb.append("Username $id\nName $name\nSurname $surname\nGender $gender\n_____________________________\n")
             }

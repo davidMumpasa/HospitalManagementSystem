@@ -20,7 +20,7 @@ class DoctorAppointmentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_appointments)
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Appointments"
@@ -28,7 +28,7 @@ class DoctorAppointmentsActivity : AppCompatActivity() {
         val name: String = intent.getStringExtra("name").toString()
         val surname: String= intent.getStringExtra("surname").toString()
         val number: String= intent.getStringExtra("number").toString()
-        var username: String = intent.getStringExtra("username").toString()
+        val username: String = intent.getStringExtra("username").toString()
 
         val buttonPostpone = findViewById<Button>(R.id.buttonPostpone)
 
@@ -55,12 +55,12 @@ class DoctorAppointmentsActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Appointment")
         database.get().addOnSuccessListener {
-            var sb = StringBuilder()
+            val sb = StringBuilder()
             for(i in it.children){
                 val doctor:String = i.child("doctor").value.toString()
                 if(username.contentEquals(doctor)){
-                    var id = i.key
-                    var patient:String = i.child("patient").value.toString()
+                    val id = i.key
+                    val patient:String = i.child("patient").value.toString()
                     val date = i.child("date").value
                     val disease = i.child("disease").value
                     val availability = i.child("availability").value

@@ -17,7 +17,7 @@ class AppointmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_appointment)
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Appointments"
@@ -31,11 +31,11 @@ class AppointmentActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Appointment")
         database.get().addOnSuccessListener {
-            var sb = StringBuilder()
+            val sb = StringBuilder()
             for(i in it.children){
                 val patient:String = i.child("patient").value.toString()
                 if(username.contentEquals(patient)){
-                    var id = i.key
+                    val id = i.key
                     var doctor:String = i.child("doctor").value.toString()
                     if(doctor.contentEquals("null")){
                         doctor = "no yet assigned"

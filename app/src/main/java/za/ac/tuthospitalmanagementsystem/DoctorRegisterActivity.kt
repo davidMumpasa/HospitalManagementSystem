@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Spinner
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.ktx.database
@@ -18,7 +17,7 @@ class DoctorRegisterActivity : AppCompatActivity() {
         //val textViewBack = findViewById<TextView>(R.id.textViewBack)
 
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Doctor Registration"
@@ -53,10 +52,5 @@ class DoctorRegisterActivity : AppCompatActivity() {
 
         myref.setValue(Doctor(name,surname,id,age,gender,phone,address,availability,department,specialization,password,role))
 
-    }
-
-    private fun goToLoginPage() {
-        val intent = Intent(this,LoginActivity::class.java)
-        startActivity(intent)
     }
 }

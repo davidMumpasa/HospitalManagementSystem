@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -21,7 +19,7 @@ class PatientRegisterActivity : AppCompatActivity() {
         val textViewBack = findViewById<TextView>(R.id.textViewBack)
         val buttonRegister = findViewById<Button>(R.id.buttonRegister)
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Admin"

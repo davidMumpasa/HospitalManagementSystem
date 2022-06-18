@@ -22,7 +22,7 @@ class AdminAppointmentActivity : AppCompatActivity() {
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
         val buttonDelete = findViewById<Button>(R.id.buttonDelete)
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         val name= intent.getStringExtra("name")
         val surname= intent.getStringExtra("surname")
         val number= intent.getStringExtra("number")
@@ -79,18 +79,18 @@ class AdminAppointmentActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Appointment")
         database.get().addOnSuccessListener {
-            var sb = StringBuilder()
+            val sb = StringBuilder()
             for(i in it.children){
 
-                var availability = i.child("availability").value
-                var date = i.child("date").value
-                var disease = i.child("disease").value
+                val availability = i.child("availability").value
+                val date = i.child("date").value
+                val disease = i.child("disease").value
                 var doctor : String = i.child("doctor").value.toString()
                 if(doctor.contentEquals("null")){
                     doctor = "Not yet assigned"
                 }
-                var patient = i.child("patient").value
-                var id = i.key
+                val patient = i.child("patient").value
+                val id = i.key
 
                 sb.append("Appointment number: $id\nPatient: $patient\nDoctor: $doctor\nAvailability: $availability\nDate: $date\nDisease: $disease\n_____________________________\n")
             }
