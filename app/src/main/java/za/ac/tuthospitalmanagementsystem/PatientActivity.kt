@@ -9,12 +9,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.DatabaseReference
 import java.util.*
 
 class PatientActivity : AppCompatActivity() {
     private lateinit var toggle : ActionBarDrawerToggle
-    //private val sdf : SimpleDateFormat("dd/MM/yyyy HH:mm")
-
+    private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,52 +25,65 @@ class PatientActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Patient"
-
         val name= intent.getStringExtra("name")
         val surname= intent.getStringExtra("surname")
         val number= intent.getStringExtra("number")
         val username : String= intent.getStringExtra("userName").toString()
-
-        button_setAppointment.setOnClickListener {
-            goToSetAppointment(username)
-        }
-        toggle  = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
 
         val nameTextView = findViewById<TextView>(R.id.textViewName)
         val usernameTextView = findViewById<TextView>(R.id.textViewUsername)
         val numberTextView = findViewById<TextView>(R.id.textViewUserNumber)
         val dateTextView = findViewById<TextView>(R.id.textViewTime)
 
-
-
-
         val date = Date()
         dateTextView.text = (date).toString()
-        "$name $surname".also { nameTextView.text = it }
+
+        nameTextView.text ="$name $surname"
         usernameTextView.text = username
         numberTextView.text = number
+
+        button_setAppointment.setOnClickListener {
+            goToSetAppointment(username,name,surname,number)
+        }
+        toggle  = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+
         val nav_view = findViewById<NavigationView>(R.id.nav_view)
         nav_view.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.appointment-> goToAppointment(username)
-                R.id.logout-> goToLogin()
-                R.id.profile-> goToProfile(username)
+                R.id.appointment-> {
+                    goToAppointment(username)
+                }
+                R.id.logout-> {
+                    goToLogin()
+                }
+                R.id.profile-> {
+                    goToProfile(username,name,surname,number)
+                }
             }
             true
         }
     }
 
-    private fun goToSetAppointment(username: String) {
+    private fun goToSetAppointment(
+        username: String,
+        name: String?,
+        surname: String?,
+        number: String?
+    ) {
         val intent = Intent(this,SetAppointmentActivity::class.java)
-        intent.putExtra("username",username)
+        intent.putExtra("userName",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 
     private fun goToAppointment(username: String) {
         val intent = Intent(this,AppointmentActivity::class.java)
-        intent.putExtra("username",username)
+        intent.putExtra("userName",username)
         startActivity(intent)
     }
 
@@ -79,9 +92,12 @@ class PatientActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun goToProfile(username: String) {
+    private fun goToProfile(username: String, name: String?, surname: String?, number: String?) {
         val intent = Intent(this,ProfileActivity::class.java)
-        intent.putExtra("username",username)
+        intent.putExtra("userName",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 }

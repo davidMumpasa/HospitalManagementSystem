@@ -26,6 +26,10 @@ class SetAppointmentActivity : AppCompatActivity() {
         val buttonBack = findViewById<Button>(R.id.buttonBack)
         val buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
         val editTextDate  = findViewById<EditText>(R.id.editTextDate)
+        val username : String = intent.getStringExtra("userName").toString()
+        val name= intent.getStringExtra("name")
+        val surname= intent.getStringExtra("surname")
+        val number= intent.getStringExtra("number")
 
         val myCalender = Calendar.getInstance()
         val datePicker = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
@@ -40,11 +44,11 @@ class SetAppointmentActivity : AppCompatActivity() {
         }
         buttonSubmit.setOnClickListener {
             val randomValues = Random.nextInt(1000)
-            submitAppointment(randomValues)
+            submitAppointment(randomValues,username,name,surname,number)
         }
 
         buttonBack.setOnClickListener {
-            goToPatientActivity()
+            goToPatientActivity(username,name,surname,number)
         }
     }
 
@@ -55,24 +59,43 @@ class SetAppointmentActivity : AppCompatActivity() {
         editTextDate.setText(dFormat.format(myCalender.time))
     }
 
-    private fun submitAppointment(appointmentNumber: Int) {
+    private fun submitAppointment(
+        appointmentNumber: Int,
+        username: String,
+        name: String?,
+        surname: String?,
+        number: String?
+    ) {
         val editTextDisease :String = findViewById<EditText>(R.id.editTextDisease).text.toString()
         val spinnerAvailability :String = findViewById<Spinner>(R.id.spinnerAvailability).selectedItem.toString()
         val editTextDate : String = findViewById<EditText>(R.id.editTextDate).text.toString()
-        val username : String = intent.getStringExtra("username").toString()
 
         val database  = Firebase.database
         val myref = database.getReference("Appointment").child(appointmentNumber.toString())
 
         myref.setValue(Appointment(username, doctor="null",editTextDisease,spinnerAvailability,editTextDate))
 
-        val intent = Intent(this,AppointmentActivity::class.java)
-        intent.putExtra("username",username)
+        val intent = Intent(this,PatientActivity::class.java)
+        intent.putExtra("userName",username)
+        intent.putExtra("userName",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 
-    private fun goToPatientActivity() {
+    private fun goToPatientActivity(
+        username: String,
+        name: String?,
+        surname: String?,
+        number: String?
+    ) {
         val intent = Intent(this,PatientActivity::class.java)
+        intent.putExtra("userName",username)
+        intent.putExtra("userName",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 }

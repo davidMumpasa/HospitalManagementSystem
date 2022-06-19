@@ -23,21 +23,21 @@ class ProfileActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Update Profile"
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
+        val username : String = intent.getStringExtra("userName").toString()
 
+        val textViewUsername = findViewById<TextView>(R.id.textViewUsername)
+
+        textViewUsername.text = username
         buttonEdit.setOnClickListener {
-            editProfile()
+            editProfile(username)
         }
     }
 
-    private fun editProfile() {
-        val username : String = intent.getStringExtra("username").toString()
-        val textViewUsername = findViewById<TextView>(R.id.textViewUsername)
+    private fun editProfile(username: String) {
         val name = findViewById<EditText>(R.id.editTextViewName).text.toString()
         val surname = findViewById<EditText>(R.id.editTextViewSurname).text.toString()
         val address = findViewById<EditText>(R.id.editTextViewAddress).text.toString()
         val number = findViewById<EditText>(R.id.editTextViewNumber).text.toString()
-
-        textViewUsername.text = username
 
         database = FirebaseDatabase.getInstance().getReference("Patient")
         val updatePatient = mapOf(
@@ -49,6 +49,10 @@ class ProfileActivity : AppCompatActivity() {
         database.child(username).updateChildren(updatePatient)
         Toast.makeText(this,"Updated", Toast.LENGTH_SHORT).show()
         intent = Intent(this,PatientActivity::class.java)
+        intent.putExtra("userName",username)
+        intent.putExtra("name",name)
+        intent.putExtra("surname",surname)
+        intent.putExtra("number",number)
         startActivity(intent)
     }
 }

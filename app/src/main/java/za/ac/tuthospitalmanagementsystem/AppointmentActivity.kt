@@ -18,15 +18,15 @@ class AppointmentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_appointment)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-
+        val username : String = intent.getStringExtra("userName").toString()
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Appointments"
 
-        getAppointment()
+        getAppointment(username)
     }
 
-    private fun getAppointment() {
-        val username : String = intent.getStringExtra("username").toString()
+    private fun getAppointment(username: String) {
+
         val appointments = findViewById<TextView>(R.id.textViewAppointments)
 
         database = FirebaseDatabase.getInstance().getReference("Appointment")

@@ -36,7 +36,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:layout_gravity="center"
-            android:text="Click to go to Health Twitter Accouxnt"
+            android:text="@string/click_to_go_to_health_twitter_account"
             android:textColor="#546E7A"
             android:textSize="20sp"
             android:textStyle="bold"

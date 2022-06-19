@@ -33,6 +33,7 @@
     <string name="doctor">Doctor</string>
     <string name="patients">Patients</string>
     <string name="register_doctor">Register Doctor</string>
+    <string name="click_to_go_to_health_twitter_account">Click to go to Health Twitter Account</string>
     <string-array name="timeframe">
         <item>Select the time you are available</item>
         <item>6 - 12</item>
