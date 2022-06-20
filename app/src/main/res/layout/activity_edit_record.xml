@@ -55,7 +55,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/illnessContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextIllness"
@@ -77,7 +80,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/medicalNoContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditMedicalNo"
@@ -100,7 +106,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/medicationContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextMedication"
@@ -134,7 +143,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/treatmentContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextTreatment"

@@ -32,22 +32,33 @@ class DoctorAppointmentsActivity : AppCompatActivity() {
 
         val buttonPostpone = findViewById<Button>(R.id.buttonPostpone)
 
+        getAppointments(username)
+
         buttonPostpone.setOnClickListener {
             goToPostpone(username,name,surname,number)
         }
-        getAppointments(username)
+        //appointmentNo.setText("")
     }
 
     private fun goToPostpone(username: String, name: String, surname: String, number: String) {
-        val appointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo)
-        intent = Intent(this,PostponeActivity::class.java)
-        intent.putExtra("appointmentNo",appointmentNo.text.toString())
-        intent.putExtra("username",username)
-        intent.putExtra("name",name)
-        intent.putExtra("surname",surname)
-        intent.putExtra("number",number)
-        startActivity(intent)
-        appointmentNo.setText("")
+        val appointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo).text.toString()
+        database = FirebaseDatabase.getInstance().getReference("Appointment").child(appointmentNo)
+        database.get().addOnSuccessListener{
+            if(it.exists()){
+                intent = Intent(this,PostponeActivity::class.java)
+                intent.putExtra("appointmentNo",appointmentNo)
+                intent.putExtra("username",username)
+                intent.putExtra("name",name)
+                intent.putExtra("surname",surname)
+                intent.putExtra("number",number)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this,"Appointment does not exist",Toast.LENGTH_SHORT).show()
+            }
+        }.addOnFailureListener {
+            Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
+        }
+
     }
 
     private fun getAppointments(username: String) {

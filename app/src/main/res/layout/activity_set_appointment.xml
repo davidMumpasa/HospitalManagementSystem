@@ -29,14 +29,31 @@
             android:textColor="@color/black"
             android:textSize="20sp"/>
 
-        <EditText
-            android:id="@+id/editTextDisease"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="20sp"
-            android:inputType="textPersonName"
-            android:hint="Appointment description"/>
+            app:boxStrokeColor="#000"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextAppointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_notifications"
+                android:hint="appointment description"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:drawablePadding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Spinner
             android:id="@+id/spinnerAvailability"
@@ -50,14 +67,32 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"/>
-        <EditText
-            android:id="@+id/editTextDate"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="20sp"
-            android:inputType="date"
-            android:hint="Date"/>
+            app:boxStrokeColor="#000"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_date_range_24"
+                android:hint="Date"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:drawablePadding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

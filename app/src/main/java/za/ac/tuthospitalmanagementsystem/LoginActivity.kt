@@ -41,8 +41,9 @@ class LoginActivity : AppCompatActivity() {
         }
         loginButton.setOnClickListener {
             val userName : String = findViewById<TextInputEditText>(R.id.textInputEditTextEmail).text.toString().trim()
-            if(userName.isNotEmpty()){
-                goToPatient(userName)
+            val password : String = findViewById<TextInputEditText>(R.id.textInputEditTextPassword).text.toString().trim()
+            if(userName.isNotEmpty() and password.isNotEmpty()){
+                goToPatient(userName,password)
             }else{
                  Toast.makeText(this,"Enter your your username",Toast.LENGTH_LONG).show()
             }
@@ -59,15 +60,13 @@ class LoginActivity : AppCompatActivity() {
         startActivity(openURL)
     }
 
-    private fun goToPatient(userName : String) {
+    private fun goToPatient(userName: String, password: String) {
 
         if(radioAdmin.isChecked){
 
             database = FirebaseDatabase.getInstance().getReference("Admin").child(userName)
             database.get().addOnSuccessListener {
                 if(it.exists()){
-                    val password : String = findViewById<TextInputEditText>(R.id.textInputEditTextPassword).text.toString()
-
                     val passwordData : String = it.child("password").value.toString()
 
                     if(password.contentEquals(passwordData)){
@@ -92,13 +91,11 @@ class LoginActivity : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this,"failed",Toast.LENGTH_LONG).show()
             }
-        }
-        if(radioDoctor.isChecked){
+        }else if(radioDoctor.isChecked){
 
             database = FirebaseDatabase.getInstance().getReference("Doctor").child(userName)
             database.get().addOnSuccessListener {
                 if(it.exists()){
-                    val password : String = findViewById<TextInputEditText>(R.id.textInputEditTextPassword).text.toString()
 
                     val passwordData : String = it.child("password").value.toString()
 
@@ -123,13 +120,11 @@ class LoginActivity : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this,"failed",Toast.LENGTH_LONG).show()
             }
-        }
-        if(radioPatient.isChecked){
+        }else if(radioPatient.isChecked){
 
             database = FirebaseDatabase.getInstance().getReference("Patient").child(userName)
             database.get().addOnSuccessListener {
                 if(it.exists()){
-                    val password : String = findViewById<TextInputEditText>(R.id.textInputEditTextPassword).text.toString()
 
                     val passwordData : String = it.child("password").value.toString()
 
@@ -156,6 +151,8 @@ class LoginActivity : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this,"failed",Toast.LENGTH_LONG).show()
             }
+        }else{
+            Toast.makeText(this,"Choose your role",Toast.LENGTH_SHORT).show()
         }
     }
 

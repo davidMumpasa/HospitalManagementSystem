@@ -45,51 +45,12 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextFirstName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_profile"
-                android:hint="Enter first name"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextLastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_profile"
-                android:hint="Enter last name"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:counterMaxLength="10"
+            app:counterEnabled="true"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/phoneContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextPhone"
@@ -97,6 +58,31 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_phone"
                 android:hint="Enter phone number"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:drawablePadding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#000"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/ageContainer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_profile"
+                android:hint="Enter Age"
                 android:inputType="number"
                 android:minHeight="48dp"
                 android:drawablePadding="10dp"

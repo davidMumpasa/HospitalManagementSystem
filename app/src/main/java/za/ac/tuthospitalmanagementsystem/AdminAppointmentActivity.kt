@@ -42,8 +42,14 @@ class AdminAppointmentActivity : AppCompatActivity() {
     private fun deleteAppointment() {
         val editTextAppointmentNo = findViewById<EditText>(R.id.editTextAppointmentNo).text.toString()
         database = FirebaseDatabase.getInstance().getReference("Appointment").child(editTextAppointmentNo)
-        database.removeValue().addOnSuccessListener {
-            Toast.makeText(this,"Appointment removed",Toast.LENGTH_LONG).show()
+        database.get().addOnSuccessListener {
+            if(it.exists()){
+                database.removeValue().addOnSuccessListener {
+                    Toast.makeText(this,"Appointment removed",Toast.LENGTH_LONG).show()
+                }
+            }else{
+                Toast.makeText(this,"Appointment number does not exist",Toast.LENGTH_SHORT)
+            }
         }
     }
 

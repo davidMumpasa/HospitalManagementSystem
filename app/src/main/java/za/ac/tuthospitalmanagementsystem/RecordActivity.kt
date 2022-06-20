@@ -46,7 +46,7 @@ class RecordActivity : AppCompatActivity() {
         database.get().addOnSuccessListener {
             if(it.exists()){
                 database.removeValue().addOnSuccessListener {
-                    Toast.makeText(this,"Record removed",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Record removed",Toast.LENGTH_SHORT).show()
                 }
                 val intent = Intent(this,DoctorActivity::class.java)
                 intent.putExtra("recordNo",recordNo)
@@ -56,10 +56,10 @@ class RecordActivity : AppCompatActivity() {
                 intent.putExtra("number",number)
                 startActivity(intent)
             }else{
-                Toast.makeText(this,"Patient does not exist",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Patient does not exist",Toast.LENGTH_SHORT).show()
             }
         }.addOnFailureListener {
-            Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"failed", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -97,10 +97,10 @@ class RecordActivity : AppCompatActivity() {
                 intent.putExtra("number",number)
                 startActivity(intent)
             }else{
-                Toast.makeText(this,"Patient does not exist",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Patient does not exist",Toast.LENGTH_SHORT).show()
             }
         }.addOnFailureListener {
-            Toast.makeText(this,"failed", Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"failed", Toast.LENGTH_SHORT).show()
         }
     }
 }

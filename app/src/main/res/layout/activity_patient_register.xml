@@ -50,19 +50,23 @@
             app:civ_border_width="2dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_profile"
-                android:hint="Enter your fisrt name"
+                android:hint="Enter your first name"
+
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:drawablePadding="10dp"
@@ -72,12 +76,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastnameContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextLastName"
@@ -94,12 +101,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/idContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:counterEnabled="true"
+            app:counterMaxLength="13"
+            app:errorTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextId"
@@ -117,12 +129,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:counterMaxLength="10"
+            app:counterEnabled="true"
+            app:errorTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextPhone"
@@ -131,28 +148,6 @@
                 android:drawableStart="@drawable/ic_phone"
                 android:hint="Enter your phone number"
                 android:inputType="number"
-                android:minHeight="48dp"
-                android:drawablePadding="10dp"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:textSize="18sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#000"
-            android:theme="@style/TextInputLayoutStyle"
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_lock"
-                android:hint="enter your username"
-                android:inputType="text"
                 android:minHeight="48dp"
                 android:drawablePadding="10dp"
                 android:textColor="#000"
@@ -170,14 +165,20 @@
             android:entries="@array/gender"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"/>
+
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextAddress"
@@ -194,12 +195,43 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_lock"
+                android:hint="enter your username"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:drawablePadding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#000"
+            android:theme="@style/TextInputLayoutStyle"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:counterMaxLength="16"
+            app:counterEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:errorTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextPassword"
@@ -215,7 +247,6 @@
                 android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <Button
             android:id="@+id/buttonRegister"

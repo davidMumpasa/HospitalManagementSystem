@@ -44,7 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="@string/selectP"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/patientContainer">
             <AutoCompleteTextView
                 android:id="@+id/auto_complete_text"
                 android:layout_width="match_parent"
@@ -58,7 +61,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/illnessContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextIllness"
@@ -80,7 +86,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/medicalNoContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditMedicalNo"
@@ -103,7 +112,10 @@
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/medicationContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextMedication"
@@ -130,13 +142,17 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="#000"
             android:theme="@style/TextInputLayoutStyle"
             style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
-            app:hintTextAppearance="@color/design_default_color_primary">
+            app:hintTextAppearance="@color/design_default_color_primary"
+            app:helperText="required"
+            app:errorTextColor="@color/design_default_color_error"
+            android:id="@+id/treatmentContainer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditTextTreatment"
@@ -151,6 +167,7 @@
                 android:textColorHint="#000"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

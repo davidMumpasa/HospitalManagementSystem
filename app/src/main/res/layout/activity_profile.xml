@@ -35,48 +35,58 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editTextViewName"
-        android:hint="name"
-        android:layout_margin="20dp"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/editTextViewSurname"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:hint="surname"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+        app:boxStrokeColor="#000"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+        app:hintTextAppearance="@color/design_default_color_primary"
+        app:helperText="required"
+        app:counterMaxLength="10"
+        app:counterEnabled="true"
+        app:errorTextColor="@color/design_default_color_error">
 
-    <EditText
-        android:id="@+id/editTextViewNumber"
-        android:layout_margin="20dp"
-        android:textSize="18sp"
-        android:hint="phone number"
-        android:gravity="center"
-        android:inputType="number"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_phone"
+            android:hint="Enter your phone number"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:drawablePadding="10dp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextViewAddress"
-        android:layout_margin="20dp"
-        android:textSize="18sp"
-        android:hint="Address"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:inputType="text"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="#000"
+        android:theme="@style/TextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+        app:hintTextAppearance="@color/design_default_color_primary"
+        app:helperText="required"
+        app:errorTextColor="@color/design_default_color_error">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_home"
+            android:hint="enter your address"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:drawablePadding="10dp"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/buttonEdit"
         android:background="@drawable/button_background"
